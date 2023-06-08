@@ -7,6 +7,8 @@ public class LevelController : MonoBehaviour
 {
     /* - mengatur level loop level
      * - menjadi penghubung semua script di level (reference)
+     * 
+     * 
      */ 
 
 
@@ -15,7 +17,7 @@ public class LevelController : MonoBehaviour
 
     public float speedScaling;
     public float counter = 0;
-    public float maxCounter = 10;
+    public float maxCounter;
 
 
     public int hp;

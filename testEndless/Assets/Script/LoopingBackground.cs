@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LoopingBackground : MonoBehaviour
 {
+    /*  Buat Looping Jalan
+     * 
+     * 
+     */
+
     public float backgroundSpeed;
     public Renderer bgRenderer;
 

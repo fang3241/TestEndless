@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class BackgroundHelper : MonoBehaviour
 {
+    /*
+     * Move Background (image on canvas)
+     * 
+     * 
+     */
+
     public float speed = 0;
     float pos = 0;
     private RawImage image;

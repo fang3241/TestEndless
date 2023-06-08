@@ -1815,6 +1815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 604155324047412393, guid: d906948b977682e43bee982328a87f0a, type: 3}
   spawnInterval: 0
+  spawnTime: 0
+  levelController: {fileID: 0}
 --- !u!114 &1074431127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,9 +3572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpParentGO: {fileID: 1246355629}
   hpIcoImg: []
-  speedScaling: 1.5
+  speedScaling: 1
   counter: 0
-  maxCounter: 5
+  maxCounter: 100
   hp: 0
   selectedAnswer: 0
   correctAnswer: 0

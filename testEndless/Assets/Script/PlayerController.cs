@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    /*
+     * Player Controller
+     * player bergerak sesuai lane (0,1,2,3), default = 1
+     * pos x buat seberapa jauh jarak dari kiri layar
+     * 
+     * koor lane ada di script Lane
+     */
+
     public float speed;
     public int playerLane;
 
@@ -21,10 +29,8 @@ public class PlayerController : MonoBehaviour
         playerLane = 1;
         isMoving = false;
         this.transform.position = new Vector3(posX, Lane.playerPosition[playerLane],1);
-        //Debug.Log(new Vector3(posX, Lane.playerPosition[playerPos], 1));
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(playerHP != 0)
@@ -48,13 +54,10 @@ public class PlayerController : MonoBehaviour
             LevelController.Lose();
         }
         
-        
-
-
     }
 
     public void Hit()
-    {
+    {//tambahkan batasan hp, biar gk out of bounds
         playerHP--;
         LevelController.hpIcoImg[playerHP].gameObject.SetActive(false);
     }
