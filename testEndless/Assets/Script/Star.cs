@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Star : Collectable
 {
+    //rarity
+    //biasa, perak, emas
+    // +1 | +2 | +4
+
     protected override void OnCollect()
     {
         

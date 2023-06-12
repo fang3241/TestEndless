@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnerCycle : ObjectSpawner//anggep aja ini obstacle spawner
 {
     public GameObject prefab;
+    public GameObject parent;
    
     public float spawnInterval;
 
@@ -21,9 +22,9 @@ public class SpawnerCycle : ObjectSpawner//anggep aja ini obstacle spawner
     {
         if (Time.time > spawnTime)
         {
-            if (!levelController.isQuestionTriggered)
+            if (!levelController.isQuestionSpawned)
             {
-                SpawnObject(prefab);
+                SpawnObject(prefab, parent);
             }
             spawnTime = Time.time + (spawnInterval / levelController.speedScaling);
         }

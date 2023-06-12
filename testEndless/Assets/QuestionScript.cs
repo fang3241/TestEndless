@@ -58,9 +58,10 @@ public class QuestionScript : MonoBehaviour
         //selectedQuestion = Random.Range(0, 4);//misal doang
         //selectedAnswer = 'A';//misal juga
         //LevelController.selectedAnswer = selectedAnswer;
-        levelController.SetActiveAnswerSpawner(true);
+        //levelController.SetActiveAnswerSpawner(true);
 
-        levelController.isQuestionTriggered = true;
+        //levelController.isQuestionTriggered = true;
+        levelController.QuestionMode();
         SetQuestion();
     }
 
@@ -82,7 +83,7 @@ public class QuestionScript : MonoBehaviour
 
     public void ClosePanel()
     {
-        levelController.isQuestionTriggered = false;
+        //levelController.isQuestionTriggered = false;
         //levelController.answerSpawner.isSpawned = true;
         QuestionPanel.SetActive(false);
     }

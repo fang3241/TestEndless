@@ -6,13 +6,23 @@ public class AnswerSpawner : ObjectSpawner
 {
     public GameObject prefab;
     public List<Sprite> optionIcon;
-    public bool isSpawned;
 
     public float ansSpawnInterval;
 
+    private LevelController levelController;
+
+    private void Awake()
+    {
+        levelController = GameObject.FindObjectOfType<LevelController>();
+    }
+
     private void Start()
     {
-        isSpawned = false;
+        
+    }
+
+    public void SpawnAns()
+    {
         SpawnAnswer(prefab, optionIcon);
     }
 

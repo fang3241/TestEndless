@@ -8,20 +8,62 @@ public class SliderScript : MonoBehaviour
 {
     public Slider slider;
     public TextMeshProUGUI sliderText;
+    public float pointRate;
 
     private LevelController LevelController;
 
+    
     private void Awake()
     {
         LevelController = GameObject.FindObjectOfType<LevelController>();
     }
 
+    private void Start()
+    {
+        slider.maxValue = LevelController.maxCounter;
+        //Debug.Log("max " + slider.maxValue);
+    }
 
-
-    // Update is called once per frame
+    public void addPoint()
+    {
+        slider.value += 8 * (pointRate+pointRate);
+        Debug.Log("Added 8 point");
+        
+    }
+    
     void Update()
     {
-        slider.value = (LevelController.counter) / (LevelController.maxCounter + 0.99f);
-        sliderText.text = ((int)LevelController.counter).ToString();
+        SliderUpdate();
     }
+
+    private void SliderUpdate()
+    {
+        slider.value += Time.deltaTime * pointRate;
+        //Debug.Log(slider.value);
+        sliderText.text = ((int)slider.value).ToString();
+        IncDecToggle();
+    }
+
+    public void IncDecToggle()
+    {
+        if(slider.value == slider.maxValue)
+        {
+            //if max : spawn q
+            //if min : spawn ans
+            LevelController.QuestionScript.OpenPanel();
+            Switch();
+        }
+        else if(slider.value == slider.minValue && !LevelController.isAnswerSpawned)
+        {
+            Debug.Log("triggered Answer");
+            LevelController.answerSpawner.SpawnAns();
+            LevelController.AnswerMode();
+        }
+    }
+
+    public void Switch()
+    {
+        pointRate *= -1;
+    }
+    
 }

@@ -14,5 +14,6 @@ public class Collectable : Collidable
     protected virtual void OnCollect()
     {
         Debug.Log("Collected");
+        Destroy(this.gameObject);
     }
 }

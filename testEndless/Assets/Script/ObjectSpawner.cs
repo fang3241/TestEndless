@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
 
-    public void SpawnObject(GameObject obj)
+    public void SpawnObject(GameObject obj, GameObject parent)
     {
         int lane = Random.Range(0, 4);
-        GameObject t = Instantiate(obj, LaneCord(lane), transform.rotation);
+        GameObject t = Instantiate(obj, LaneCord(lane), transform.rotation, parent.transform);
     }
 
     private Vector3 LaneCord(int lane)

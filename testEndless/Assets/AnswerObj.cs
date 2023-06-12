@@ -27,6 +27,7 @@ public class AnswerObj : Collectable
             levelController.selectedAnswer = option;
             levelController.AnswerChecker();
         }
+        
         base.OnTriggerEnter2D(collision);
     }
     
