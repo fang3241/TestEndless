@@ -27,6 +27,7 @@ public class Obstacle : Collidable
         {
             //levelController.Hit();
             player.Hit();
+            levelController.objectiveController.objectives[2].addProgress();
             //Debug.Log(collision.name);
             Destroy(this.gameObject);
         }

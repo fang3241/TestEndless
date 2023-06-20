@@ -10,6 +10,8 @@ public class SliderScript : MonoBehaviour
     public TextMeshProUGUI sliderText;
     public float pointRate;
 
+    public int fillBarCounter;
+
     private LevelController LevelController;
 
     
@@ -20,6 +22,7 @@ public class SliderScript : MonoBehaviour
 
     private void Start()
     {
+        fillBarCounter = 0;
         slider.maxValue = LevelController.maxCounter;
         //Debug.Log("max " + slider.maxValue);
     }
@@ -38,10 +41,13 @@ public class SliderScript : MonoBehaviour
 
     private void SliderUpdate()
     {
-        slider.value += Time.deltaTime * pointRate;
-        //Debug.Log(slider.value);
-        sliderText.text = ((int)slider.value).ToString();
-        IncDecToggle();
+        if (!LevelController.isLevelEnd)
+        {
+            slider.value += Time.deltaTime * pointRate;
+            //Debug.Log(slider.value);
+            sliderText.text = ((int)slider.value).ToString();
+            IncDecToggle();
+        }
     }
 
     public void IncDecToggle()
@@ -50,6 +56,8 @@ public class SliderScript : MonoBehaviour
         {
             //if max : spawn q
             //if min : spawn ans
+            //fillBarCounter++;
+            LevelController.objectiveController.objectives[0].addProgress();
             LevelController.QuestionScript.OpenPanel();
             Switch();
         }

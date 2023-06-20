@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public QuestionReader qReader;
+    public LevelController levelController;
 
     private void Awake()
     {

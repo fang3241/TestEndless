@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -15,19 +16,22 @@ public class LevelController : MonoBehaviour
     public GameObject hpParentGO;
     public GameObject ObsHolder;
     public List<Image> hpIcoImg;
+    public GameObject LevelEndPanel;
 
     public float speedScaling;
-    public float counter = 0;
     public float maxCounter;
 
+    public int questionCounter;
+    public int maxQuestion;
 
     public int hp;
     public char selectedAnswer;
 
     public char correctAnswer;
 
-    public PlayerController player;
     public GameManager gameManager;
+    public PlayerController player;
+    public ObjectiveController objectiveController;
     public QuestionScript QuestionScript;
     public AnswerSpawner answerSpawner;
     public SliderScript slider;
@@ -35,30 +39,34 @@ public class LevelController : MonoBehaviour
     public bool isAnswerSpawned;
     public bool isQuestionSpawned;
 
-    //private bool isQuestionAnswered;//apakah player udah memilih opsi
-    //public bool isQuestionTriggered;
-    //private bool isDelayTriggered;
-    //private bool isDelayFinished;
-    //private bool isQuestionStarted;
-
+    public bool isLevelEnd;
+    
     private void Awake()
     {
+        gameManager = GameManager.instance;
+        gameManager.levelController = this;
+
         QuestionScript = GameObject.FindObjectOfType<QuestionScript>();
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<SliderScript>();
         hp = 3;
-
         speedScaling = 1;
         maxCounter += 0.1f;
 
+        questionCounter = 0;
+        maxQuestion = 2;
+
+
+        isLevelEnd = false;
         isAnswerSpawned = false;
         isQuestionSpawned = false;
     }
 
     void Start()
     {
-        foreach(Image image in hpParentGO.GetComponentsInChildren<Image>())
+        objectiveController = GetComponent<ObjectiveController>();
+        foreach (Image image in hpParentGO.GetComponentsInChildren<Image>())
         {
             if(image.name != hpParentGO.name)
                 hpIcoImg.Add(image);
@@ -69,8 +77,7 @@ public class LevelController : MonoBehaviour
 
     private void Update()
     {
-
-        //EnableQuestion();
+        
 
     }
     
@@ -80,7 +87,13 @@ public class LevelController : MonoBehaviour
         {
             player.Hit();
         }
+        else
+        {
+            objectiveController.objectives[1].addProgress();
+        }
 
+        questionCounter++;
+        LevelEnd();
         QuestionMode();
         AnswerMode();
         slider.Switch();
@@ -108,6 +121,28 @@ public class LevelController : MonoBehaviour
         Debug.Log("isSpawned : " + isAnswerSpawned);
     }
 
+    public void LevelEnd()
+    {
+        if(questionCounter == maxQuestion)
+        {
+            Debug.Log("Level Complete");
+            speedScaling = 0;
+            isLevelEnd = true;
+            openPanelEnd();
+        }
+        
+    }
+
+    public void openPanelEnd()
+    {
+        LevelEndPanel.SetActive(true);
+    }
+
+    public void ResetAll()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Lose()
     {
         Debug.Log("Lose");
@@ -115,85 +150,5 @@ public class LevelController : MonoBehaviour
         player.gameObject.SetActive(false);
         //tampilkan panel lose
     }
-
-   
-
-    //IEnumerator Delay(float delay)
-    //{
-    //    isDelayTriggered = true;
-    //    yield return new WaitForSeconds(delay);
-    //    //QuestionScript.OpenPanel();
-    //    isDelayFinished = true;
-    //    isDelayTriggered = false;
-    //    //Debug.Log("Delay Complete");
-
-    //}
     
-    public void ToggleQuestion()
-    {
-
-        //if(counter <= maxCounter + 0.99f && !isQuestionStarted)
-        //{
-        //    /*UBAH
-        //     * speedScaling => bikin baru, pointScaling
-        //     * 
-        //     * point rate = 0.5p/s
-        //     * max point : 10 | 15 | 20
-        //     */
-
-        //    //counter += speedScaling * Time.deltaTime;
-        //}
-        //else
-        //{//benerin bagian ini nya, 
-        //    if (isQuestionTriggered)
-        //    {
-        //        if (isDelayFinished)
-        //        {
-        //            //if()bar blom kosong
-        //            //bar--;
-        //            //else, spawn jawaban
-        //        }
-        //        else
-        //        {
-        //            if (!isDelayTriggered)
-        //                StartCoroutine(Delay(1));
-        //        }
-
-
-        //    }
-        //    else
-        //    {
-        //        isQuestionTriggered = true;
-        //        isQuestionStarted = true;
-        //        QuestionScript.OpenPanel();
-        //        //open panel;
-        //    }
-
-
-
-        //    //if (isDelayTriggered)
-        //    //{
-        //    //    //spawn soal
-
-        //    //    //baru countdown counter
-        //    //    if (counter >= 0)
-        //    //    {
-        //    //        AnswerSpawner.gameObject.SetActive(true);
-        //    //        counter -= speedScaling * Time.deltaTime;   //waktu buat baca soal
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        QuestionScript.ClosePanel();
-        //    //    }
-
-
-
-        //    //}//ubah isdelayed jadi isdelaytriggered, nanti juga inget lagi, kuncinya jangan dibalikin 
-        //    //else
-        //    //{
-        //    //    StartCoroutine(Delay(3));
-        //    //}
-        //}
-    }
-
 }
