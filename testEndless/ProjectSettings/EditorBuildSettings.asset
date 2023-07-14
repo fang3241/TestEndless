@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/LevelLand.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GamemodeSelect.unity
+    guid: 574fe9f00bae63b43a258a107f8f55b7
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 73ef73499097959459f8b7c43be8fc4f
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c8b0fadc34e28bb4698ec700e196de7f
+  - enabled: 1
+    path: Assets/Scenes/ChapterSelect.unity
+    guid: f44ff53f7861e0045be83c163c8b90fa
   m_configObjects: {}
