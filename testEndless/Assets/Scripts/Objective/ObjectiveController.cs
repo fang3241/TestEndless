@@ -29,6 +29,13 @@ public class ObjectiveController : MonoBehaviour
         objectives[1] = new Objective_Answer(2);
         objectives[2] = new Objective_Hit(2);
 
+        int t = 0;
+        foreach(Text a in pausePanel.transform.GetChild(0).GetChild(1).GetComponentsInChildren<Text>())
+        {
+            objText[t] = a;
+            t++;
+        }
+
         for(int i = 0; i < 3; i++)
         {
             objText[i].text = objectives[i].getNama();

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6810319787673974334}
   - component: {fileID: 7671540889258498568}
   - component: {fileID: -3390247908926594056}
+  - component: {fileID: 3358824466068329855}
   m_Layer: 0
   m_Name: Obstacle_1
-  m_TagString: Collidable
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,4 +123,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19dbe24c94d7a443aa1f74b56ef89a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsSpeed: 3.36
+  sprite: {fileID: 21300000, guid: cad4f676a2e27714ebc906dcd217b180, type: 3}
+  speed: 3.36
+  Damage: 1
+--- !u!50 &3358824466068329855
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604155324047412393}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

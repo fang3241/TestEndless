@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void Hit()
+    public void Hit(int dmg)
     {//tambahkan batasan hp, biar gk out of bounds
-        playerHP--;
+        playerHP -= dmg;
         LevelController.hpIcoImg[playerHP].gameObject.SetActive(false);
     }
 
-    public void Heal()
+    public void Heal(int addHp)
     {
         if (playerHP < 3)
         {

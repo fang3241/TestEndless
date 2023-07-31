@@ -14,16 +14,20 @@ public class QuestionScript : MonoBehaviour
 
     private LevelController levelController;
 
+    public GameObject QuestionPanel;
     public TextMeshProUGUI questionText;
     public List<TextMeshProUGUI> optionText;
 
-    private GameObject QuestionPanel;
 
     //private List<int> questions;//pertanyaan per stage dipisah aja variabelnya
     //private List<int,int> options;//index, index isi
     //private List<int> answers;
+    
 
-    private List<QuestionClass> questions;
+    public LevelQuestion[] a;
+
+
+    private List<LevelQuestion> questions;
     
     private int selectedQuestion;
     private char selectedAnswer;
@@ -33,12 +37,40 @@ public class QuestionScript : MonoBehaviour
     private void Awake()
     {
         levelController = GameObject.FindObjectOfType<LevelController>();
-        questionText = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        QuestionPanel = transform.GetChild(0).gameObject;
-        
-        foreach (TextMeshProUGUI txt in transform.GetChild(0).GetChild(1).GetComponentsInChildren<TextMeshProUGUI>())
+        //questionText = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        //QuestionPanel = transform.GetChild(0).gameObject;
+
+        questionText = QuestionPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        GameObject temp = QuestionPanel.transform.GetChild(0).GetChild(1).gameObject;
+        foreach(TextMeshProUGUI a in temp.GetComponentsInChildren<TextMeshProUGUI>())
         {
-            optionText.Add(txt);
+            optionText.Add(a);
+        }
+        
+        questions = new List<LevelQuestion>();
+
+        if (levelController.questionPools.Length != 0)
+        {
+            Debug.Log(levelController.questionPools.Length);
+            foreach (SoalBab bab in levelController.questionPools)
+            {
+                //Debug.Log(bab.bab);
+                Debug.Log(bab.levelQuestions.Length);
+                foreach (LevelQuestion lq in bab.levelQuestions)
+                {
+                    questions.Add(lq);
+                }
+            }
+        }
+
+        a = new LevelQuestion[questions.Count];
+
+        int i = 0;
+        foreach (LevelQuestion t in questions)
+        {
+            a[i] = t;
+            i++;
         }
 
     }
@@ -47,44 +79,41 @@ public class QuestionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        questions = new List<QuestionClass>(levelController.gameManager.qReader.questions);
+        //questions = new List<QuestionClass>(levelController.gameManager.qReader.questions);
 
+       
     }
 
-
-    public void OpenPanel()
-    {
-
-        //selectedQuestion = Random.Range(0, 4);//misal doang
-        //selectedAnswer = 'A';//misal juga
-        //LevelController.selectedAnswer = selectedAnswer;
-        //levelController.SetActiveAnswerSpawner(true);
-
-        //levelController.isQuestionTriggered = true;
-        levelController.QuestionMode();
-        SetQuestion();
-    }
 
     public void SetQuestion()
     {
+        
         selectedQuestion = Random.Range(0, questions.Count);
-        levelController.correctAnswer = questions[selectedQuestion].Answer;
+        levelController.correctAnswer = (char)questions[selectedQuestion].answer;
 
-        questionText.text = questions[selectedQuestion].Question;
+        Debug.Log((char)questions[selectedQuestion].answer);
 
-        for(int i = 0; i < 4; i++)
+        questionText.text = questions[selectedQuestion].question;
+
+        char[] ops = { 'A', 'B', 'C', 'D' }; 
+
+        for (int i = 0; i < 4; i++)
         {
-            optionText[i].text = questions[selectedQuestion].Options[i];
+            optionText[i].text = ops[i] + ". " + questions[selectedQuestion].options[i];
         }
-        QuestionPanel.SetActive(true);
 
+        OpenPanel();
 
     }
 
+    public void OpenPanel()
+    {
+        QuestionPanel.SetActive(true);
+    }
+
+
     public void ClosePanel()
     {
-        //levelController.isQuestionTriggered = false;
-        //levelController.answerSpawner.isSpawned = true;
         QuestionPanel.SetActive(false);
     }
 

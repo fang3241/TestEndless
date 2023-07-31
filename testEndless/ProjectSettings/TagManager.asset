@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Collidable
   - Despawner
   - HP Icon
   - Spawner
   - Slider
+  - Collectable
   layers:
   - Default
   - TransparentFX

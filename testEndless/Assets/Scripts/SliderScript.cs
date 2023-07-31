@@ -12,6 +12,8 @@ public class SliderScript : MonoBehaviour
 
     public int fillBarCounter;
 
+    public bool isTesting = false;
+
     private LevelController LevelController;
 
     
@@ -23,13 +25,13 @@ public class SliderScript : MonoBehaviour
     private void Start()
     {
         fillBarCounter = 0;
-        slider.maxValue = LevelController.maxCounter;
+        slider.maxValue = LevelController.maxSliderCounter + 0.1f;
         //Debug.Log("max " + slider.maxValue);
     }
 
-    public void addPoint()
+    public void addPoint(int add)
     {
-        slider.value += 8 * (pointRate+pointRate);
+        slider.value += add * pointRate;
         Debug.Log("Added 8 point");
         
     }
@@ -41,7 +43,7 @@ public class SliderScript : MonoBehaviour
 
     private void SliderUpdate()
     {
-        if (!LevelController.isLevelEnd)
+        if (!LevelController.isLevelEnd && !isTesting)
         {
             slider.value += Time.deltaTime * pointRate;
             //Debug.Log(slider.value);
@@ -57,15 +59,18 @@ public class SliderScript : MonoBehaviour
             //if max : spawn q
             //if min : spawn ans
             //fillBarCounter++;
+
             LevelController.objectiveController.objectives[0].addProgress();
-            LevelController.QuestionScript.OpenPanel();
+
+            //LevelController.QuestionScript.OpenPanel();
+            LevelController.StartQuestion();
             Switch();
         }
         else if(slider.value == slider.minValue && !LevelController.isAnswerSpawned)
         {
             Debug.Log("triggered Answer");
-            LevelController.answerSpawner.SpawnAns();
-            LevelController.AnswerMode();
+            //LevelController.answerSpawner.SpawnAns();
+            LevelController.StartAnswer();
         }
     }
 

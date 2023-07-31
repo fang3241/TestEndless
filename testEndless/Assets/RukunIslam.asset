@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b5c56b09597f747a827eb7b330f245, type: 3}
+  m_Name: RukunIslam
+  m_EditorClassIdentifier: 
+  bab: 1
+  levelQuestions:
+  - question: Berapa Jumlah Rukun Islam
+    options:
+    - 3
+    - 4
+    - 5
+    - 6
+    answer: 67
+  - question: Rukun islam ke 3 adalah
+    options:
+    - Syahadat
+    - Haji
+    - Zakat
+    - Puasa
+    answer: 68
+  - question: Rukun islam ke 1 adalah
+    options:
+    - Syahadat
+    - Haji
+    - Zakat
+    - Puasa
+    answer: 65
+  - question: Rukun islam ke 2 adalah
+    options:
+    - Syahadat
+    - Haji
+    - Sholat
+    - Puasa
+    answer: 67

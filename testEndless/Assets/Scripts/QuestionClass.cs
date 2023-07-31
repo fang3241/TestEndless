@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[System.Serializable]//buat question reader custom soal
 public class QuestionClass
 {
     public string question;

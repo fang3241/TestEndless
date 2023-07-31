@@ -2,29 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnswerSpawner : ObjectSpawner
+public class AnswerSpawner : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject parent;
+    public GameObject answerPrefab;
     public List<Sprite> optionIcon;
-
-    public float ansSpawnInterval;
-
+    
     private LevelController levelController;
+
+    public GameObject[] tempHolder;
+
+    private char[] optionList = { 'A', 'B', 'C', 'D' };
 
     private void Awake()
     {
         levelController = GameObject.FindObjectOfType<LevelController>();
     }
-
-    private void Start()
+    
+    public void SpawnAnswer()
     {
-        
+        tempHolder = new GameObject[4];
+        for(int i = 0; i < 4; i++)
+        {
+            GameObject temp = Instantiate(answerPrefab, LaneCord(i), transform.rotation, parent.transform);
+            temp.name = "opsi-" + optionList[i];
+            temp.GetComponent<SpriteRenderer>().sprite = optionIcon[i];
+            temp.GetComponent<AnswerObj>().option = optionList[i];
+
+            tempHolder[i] = temp;
+        }
     }
 
-    public void SpawnAns()
+    public void ClearAllAnswer()
     {
-        SpawnAnswer(prefab, optionIcon);
+        foreach(GameObject a in tempHolder)
+        {
+            if(a != null)
+            {
+                Destroy(a);
+            }
+        }
     }
+
+    private Vector3 LaneCord(int lane)
+    {
+        return new Vector2(transform.position.x, Lane.objectPosition[lane]);
+    }
+
+    //public void SpawnAns()
+    //{
+    //    SpawnAnswer(prefab, optionIcon);
+    //}
 
     //protected override void Update()
     //{

@@ -8,8 +8,8 @@ public class Star : Collectable
     //biasa, perak, emas
     // +1 | +2 | +4
 
-    protected override void OnCollect()
+    protected override void HitEffect()
     {
-        
+        base.HitEffect();
     }
 }

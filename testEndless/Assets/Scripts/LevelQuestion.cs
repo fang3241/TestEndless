@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[System.Serializable]//buat manual level
 public class LevelQuestion
 {
     public enum charOptions
     {
-        A,
-        B,
-        C,
-        D,
+        A = 'A',
+        B = 'B',
+        C = 'C',
+        D = 'D',
     }
 
     public string question;
     public string[] options;
     public charOptions answer;
 
-
-
+   
     public bool AnswerChecker(int opt)
     {
         if(opt == (int)answer)
