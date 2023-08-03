@@ -9,11 +9,10 @@ public class AnswerObj : Collectable
     protected override void HitEffect()
     {
         Debug.Log(option + " Hit");
-        levelController.isAnswered = true;
 
         levelController.answerSpawner.ClearAllAnswer();
         levelController.selectedAnswer = option;
-        levelController.AnswerChecker();
+        levelController.Answered();
     }
 
 

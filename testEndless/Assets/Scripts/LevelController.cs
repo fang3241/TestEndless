@@ -17,8 +17,7 @@ public class LevelController : MonoBehaviour
     //hide semua
     [HideInInspector]
     public ObjectiveController objectiveController;
-
-    [HideInInspector]
+    
     public QuestionScript QuestionScript;
 
     [HideInInspector]
@@ -32,23 +31,24 @@ public class LevelController : MonoBehaviour
 
     [HideInInspector]
     public GameObject ObsContainer;
-
-    [HideInInspector]
+    
     public SliderScript slider;
 
     public GameObject spawnerParent;
     public GameObject hpContainer;
-    public GameObject LevelEndPanel;
+    public GameObject LevelLosePanel;
 
 
     [Header("Level Manager Variables")]
     public float maxSliderCounter;
     public int maxQuestion;
+    public int maxReadingTime;
     public SoalBab[] questionPools;
 
     
     [HideInInspector]
     public List<Image> hpIcoImg;
+    
 
     [Header("Level Controller Variables")]
     public int hp;
@@ -66,12 +66,28 @@ public class LevelController : MonoBehaviour
 
     public bool isLevelEnd;
 
+    public bool ISLOADED = false;
+
     private int ctr;
     
     private void Awake()
     {
         gameManager = GameManager.instance;
         gameManager.levelController = this;
+
+        maxSliderCounter = gameManager.selectedMaxCounter;
+        maxQuestion = gameManager.selectedMaxQuestion;
+        maxReadingTime = gameManager.selectedMaxReadingTime;
+
+        questionPools = new SoalBab[gameManager.selectedBabs];
+
+        for (int i = 0; i < gameManager.selectedBabs; i++)
+        {
+            questionPools[i] = gameManager.kumpulanSoal[i];
+        }
+
+        
+
 
         //kalo mau, untuk menambah performa, kurangin penggunaan find
         QuestionScript = GameObject.FindObjectOfType<QuestionScript>();
@@ -84,6 +100,13 @@ public class LevelController : MonoBehaviour
         collectableSpawner = spawnerParent.transform.GetChild(1).GetComponent<CollectableSpawner>();
         obstacleSpawner = spawnerParent.transform.GetChild(2).GetComponent<ObstacleSpawner>();
         ObsContainer = spawnerParent.transform.GetChild(3).gameObject;
+
+
+        QuestionScript.levelController = this;
+        slider.levelController = this;
+        slider.slider.maxValue = maxSliderCounter;
+
+
 
         hp = 3;
         speedScaling = 1;
@@ -98,6 +121,46 @@ public class LevelController : MonoBehaviour
             hpIcoImg.Add(hpContainer.transform.GetChild(i).GetComponent<Image>());
         }
 
+        
+
+    }
+
+    private IEnumerator WaitForGM()
+    {
+        yield return new WaitUntil(() =>
+        {
+
+            gameManager = GameManager.instance;
+            gameManager.levelController = this;
+
+            maxSliderCounter = gameManager.selectedMaxCounter;
+            maxQuestion = gameManager.selectedMaxQuestion;
+            maxReadingTime = gameManager.selectedMaxReadingTime;
+
+            questionPools = new SoalBab[gameManager.selectedBabs];
+
+            for (int i = 0; i < gameManager.selectedBabs; i++)
+            {
+                questionPools[i] = gameManager.kumpulanSoal[i];
+            }
+
+            QuestionScript.levelController = this;
+            slider.levelController = this;
+            slider.slider.maxValue = maxSliderCounter;
+
+            return gameManager != null;
+
+            
+        });
+
+        if(gameManager == null)
+        {
+            StartCoroutine(WaitForGM());
+        }
+        else
+        {
+            Debug.Log("LOADED");
+        }
     }
 
     void Start()
@@ -109,21 +172,77 @@ public class LevelController : MonoBehaviour
         //answerSpawner.gameObject.SetActive(false);
 
     }
+   
 
-    private void Update()
+    public void SpawnQuestion()
     {
-        
+        Debug.Log("spawnQuestion");
 
-    }
+        questionCounter++;
 
-    public void StartQuestion()
-    {
-        ctr = 0;
-        isQuestionSpawned = !isQuestionSpawned;
+        isQuestionSpawned = true;
+        isAnswerSpawned = false;
         isAnswered = false;
 
-        obstacleSpawner.canSpawn = false;
-        collectableSpawner.canSpawn = false;
+        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
+        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
+        Debug.Log("isanswered : " + isAnswered);
+
+        DisableOrEnableSpawned();
+        QuestionScript.SetQuestion();
+    }
+
+    public void SpawnAnswer()
+    {
+        Debug.Log("answerSpawned");
+        isQuestionSpawned = true;
+        isAnswerSpawned = true;
+        isAnswered = false;
+
+        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
+        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
+        Debug.Log("isanswered : " + isAnswered);
+
+        answerSpawner.SpawnAnswer();
+    }
+
+    public void Answered()
+    {
+        Debug.Log("Answered");
+        isQuestionSpawned = true;
+        isAnswerSpawned = true;
+        isAnswered = true;
+
+        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
+        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
+        Debug.Log("isanswered : " + isAnswered);
+
+        AnswerChecker();
+        
+    }
+
+    public void StateReset()
+    {
+        Debug.Log("Resetting");
+        isQuestionSpawned = false;
+        isAnswerSpawned = false;
+        isAnswered = false;
+        
+        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
+        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
+        Debug.Log("isanswered : " + isAnswered);
+
+        LevelEndChecker();
+        QuestionScript.ClosePanel();
+        DisableOrEnableSpawned();
+    }
+
+    public void DisableOrEnableSpawned()
+    {
+        obstacleSpawner.canSpawn = !isQuestionSpawned;
+        collectableSpawner.canSpawn = !isQuestionSpawned;
+
+        ctr = 0;
 
         if (isQuestionSpawned)
         {
@@ -132,25 +251,15 @@ public class LevelController : MonoBehaviour
                 Destroy(a.gameObject);
             }
         }
-
-        QuestionScript.SetQuestion();
-        questionCounter++;
-        Debug.Log("isQuestionSpawned : " + isQuestionSpawned);
-    }
-    
-    public void StartAnswer()
-    {
-        answerSpawner.SpawnAnswer();
-        isAnswerSpawned = true;
-        Debug.Log("isAnswerSpawned : " + isAnswerSpawned);
+        
     }
 
     public void AnswerChecker()
     {
         ctr++;
-        if (isAnswered && ctr == 1)
+        if (ctr == 1)
         {
-            if(selectedAnswer != correctAnswer)
+            if (selectedAnswer != correctAnswer)
             {
                 player.Hit(1);
                 Debug.Log("Jawaban Salah");
@@ -161,30 +270,15 @@ public class LevelController : MonoBehaviour
                 Debug.Log("Jawaban Benar");
                 countCorrectAnswer++;
             }
-            isAnswered = false;
-            isAnswerSpawned = false;
-            slider.Switch();
+
+            //slider.Switch();
         }
-       
 
-        LevelEndChecker();
-        QuestionScript.ClosePanel();
-        
 
-        Debug.Log(selectedAnswer + " " + ctr);
-        
+        //Debug.Log(selectedAnswer + " " + ctr);
+
     }
 
-    public void ResetQuestionStatus()
-    {
-        isAnswerSpawned = false;
-        isQuestionSpawned = false;
-
-        obstacleSpawner.canSpawn = true;
-        collectableSpawner.canSpawn = true;
-    }
-
-   
     public void LevelEndChecker()
     {
         if(questionCounter == maxQuestion)
@@ -192,14 +286,14 @@ public class LevelController : MonoBehaviour
             Debug.Log("Level Complete");
             speedScaling = 0;
             isLevelEnd = true;
-            OpenEndPanel();
+            OpenEndPanel();//win panel
         }
         
     }
 
     public void OpenEndPanel()
     {
-        LevelEndPanel.SetActive(true);
+        objectiveController.ShowWinPanel();
     }
 
     public void ResetAll()
@@ -212,29 +306,52 @@ public class LevelController : MonoBehaviour
         Debug.Log("Lose");
         speedScaling = 0;
         player.gameObject.SetActive(false);
+        isLevelEnd = true;
+        objectiveController.ShowLosePanel();
         //tampilkan panel lose
     }
 
 
-    //public void QuestionMode()
+
+
+    //public void StartQuestion()
     //{
+    //    ctr = 0;
     //    isQuestionSpawned = !isQuestionSpawned;
+    //    isAnswered = false;
+
+    //    obstacleSpawner.canSpawn = false;
+    //    collectableSpawner.canSpawn = false;
 
     //    if (isQuestionSpawned)
     //    {
-    //        foreach (Transform a in ObsHolder.transform)
+    //        foreach (Transform a in ObsContainer.transform)
     //        {
     //            Destroy(a.gameObject);
     //        }
     //    }
 
-    //    Debug.Log("isSpawned : " + isQuestionSpawned);
+    //    QuestionScript.SetQuestion();
+    //    questionCounter++;
+    //    Debug.Log("isQuestionSpawned : " + isQuestionSpawned);
     //}
 
-    //public void AnswerMode()
+    //public void StartAnswer()
     //{
-    //    isAnswerSpawned = !isAnswerSpawned;
-    //    Debug.Log("isSpawned : " + isAnswerSpawned);
+    //    answerSpawner.SpawnAnswer();
+    //    isAnswerSpawned = true;
+    //    Debug.Log("isAnswerSpawned : " + isAnswerSpawned);
+    //}
+
+    
+
+    //public void ResetQuestionStatus()
+    //{
+    //    isAnswerSpawned = false;
+    //    isQuestionSpawned = false;
+
+    //    obstacleSpawner.canSpawn = true;
+    //    collectableSpawner.canSpawn = true;
     //}
 
 }

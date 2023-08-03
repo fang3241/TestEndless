@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChapterSelect.unity
     guid: f44ff53f7861e0045be83c163c8b90fa
+  - enabled: 1
+    path: Assets/Scenes/LevelSea.unity
+    guid: 561c151b8e4c5f144b5006a6a8308c0b
+  - enabled: 1
+    path: Assets/Scenes/LevelAir.unity
+    guid: d40cd19dd497d1040bfd1e3a934e3084
   m_configObjects: {}

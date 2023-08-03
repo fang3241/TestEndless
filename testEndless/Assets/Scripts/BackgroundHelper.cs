@@ -31,7 +31,7 @@ public class BackgroundHelper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pos += (speed * LevelController.speedScaling);
+        pos += (speed * LevelController.speedScaling * Time.deltaTime);
 
         if (pos > 1.0f)
             pos -= 1.0f;

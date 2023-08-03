@@ -13,6 +13,8 @@ public class LevelQuestion
         D = 'D',
     }
 
+    public Sprite questionImage;
+    public bool hasImage;
     public string question;
     public string[] options;
     public charOptions answer;

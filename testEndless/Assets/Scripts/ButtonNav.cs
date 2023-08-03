@@ -14,7 +14,7 @@ public class ButtonNav : MonoBehaviour
         LevelSelect,
         LevelLand,
         LevelAir,
-        LevelWater,
+        LevelSea,
         Settings,
     }
 
@@ -58,7 +58,7 @@ public class ButtonNav : MonoBehaviour
 
     public void toLevelWater()
     {
-        SceneManager.LoadScene(SceneList.LevelWater.ToString());
+        SceneManager.LoadScene(SceneList.LevelSea.ToString());
     }
 
     public void toSettings()

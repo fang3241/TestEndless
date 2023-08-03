@@ -12,7 +12,7 @@ public class QuestionScript : MonoBehaviour
     //masing" ada x soal, dan nanti yg ditampilin random
     //misal ada 2 pertanyaan per level, dan ada 5 level per stage, jadi ada min 10 pertanyaan di stage itu yg diambil random
 
-    private LevelController levelController;
+    public LevelController levelController;
 
     public GameObject QuestionPanel;
     public TextMeshProUGUI questionText;
@@ -36,42 +36,19 @@ public class QuestionScript : MonoBehaviour
 
     private void Awake()
     {
-        levelController = GameObject.FindObjectOfType<LevelController>();
+        //levelController = GameObject.FindObjectOfType<LevelController>();
         //questionText = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         //QuestionPanel = transform.GetChild(0).gameObject;
+        //Debug.Log("QSS " + levelController == null);
+        questionText = QuestionPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-        questionText = QuestionPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        GameObject temp = QuestionPanel.transform.GetChild(0).GetChild(1).gameObject;
+        GameObject temp = QuestionPanel.transform.GetChild(0).GetChild(2).gameObject;
         foreach(TextMeshProUGUI a in temp.GetComponentsInChildren<TextMeshProUGUI>())
         {
             optionText.Add(a);
         }
         
-        questions = new List<LevelQuestion>();
-
-        if (levelController.questionPools.Length != 0)
-        {
-            Debug.Log(levelController.questionPools.Length);
-            foreach (SoalBab bab in levelController.questionPools)
-            {
-                //Debug.Log(bab.bab);
-                Debug.Log(bab.levelQuestions.Length);
-                foreach (LevelQuestion lq in bab.levelQuestions)
-                {
-                    questions.Add(lq);
-                }
-            }
-        }
-
-        a = new LevelQuestion[questions.Count];
-
-        int i = 0;
-        foreach (LevelQuestion t in questions)
-        {
-            a[i] = t;
-            i++;
-        }
+        
 
     }
 
@@ -80,15 +57,59 @@ public class QuestionScript : MonoBehaviour
     void Start()
     {
         //questions = new List<QuestionClass>(levelController.gameManager.qReader.questions);
+        questions = new List<LevelQuestion>();
 
-       
+        StartCoroutine(LoadQuestion());
+        
     }
 
+    IEnumerator LoadQuestion()
+    {
+        yield return new WaitUntil(() =>
+        {
+            if (levelController.questionPools.Length != 0)
+            {
+                Debug.Log(levelController.questionPools.Length);
+                foreach (SoalBab bab in levelController.questionPools)
+                {
+                    //Debug.Log(bab.bab);
+                    //Debug.Log(bab.levelQuestions.Length);
+                    foreach (LevelQuestion lq in bab.levelQuestions)
+                    {
+                        //Debug.Log(lq);
+                        questions.Add(lq);
+                    }
+                }
+            }
+
+            a = new LevelQuestion[questions.Count];
+            Debug.Log("que " + questions.Count);
+            int i = 0;
+            foreach (LevelQuestion t in questions)
+            {
+                a[i] = t;
+                i++;
+            }
+            return questions.Count != 0;
+        });
+
+        if(questions.Count == 0)
+        {
+            StartCoroutine(LoadQuestion());
+        }
+        else
+        {
+            Debug.Log("QUESTION LOADED");
+        }
+
+    }
 
     public void SetQuestion()
     {
         
         selectedQuestion = Random.Range(0, questions.Count);
+        Debug.Log("q = " + selectedQuestion);
+        Debug.Log("qc = " + questions.Count);
         levelController.correctAnswer = (char)questions[selectedQuestion].answer;
 
         Debug.Log((char)questions[selectedQuestion].answer);

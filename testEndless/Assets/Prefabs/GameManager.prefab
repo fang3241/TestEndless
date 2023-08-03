@@ -48,6 +48,17 @@ MonoBehaviour:
   qReader: {fileID: 0}
   levelController: {fileID: 0}
   buttonNavigation: {fileID: 0}
+  kumpulanSoal:
+  - {fileID: 11400000, guid: cbfa0374ebc261149adb93e767aa6afb, type: 2}
+  - {fileID: 11400000, guid: 721ba50b64397464ca4d38e1a47264aa, type: 2}
+  - {fileID: 11400000, guid: b24e1de72d714874aa536e01a5dee6ac, type: 2}
+  - {fileID: 11400000, guid: cfd3a60c83af86b43b0a5e5fdaec560b, type: 2}
+  - {fileID: 11400000, guid: 68cce86e81af4de4cacf202ac1ad5b8d, type: 2}
+  selectedChapter: 0
+  selectedLevel: 0
+  selectedMaxCounter: 0
+  selectedMaxQuestion: 0
+  selectedBabs: 0
 --- !u!114 &4569827644304369478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +74,7 @@ MonoBehaviour:
   soalText: {fileID: 0}
   filename: SoalMudah
   splitSoal: []
+  questions: []
 --- !u!114 &-611331234938789686
 MonoBehaviour:
   m_ObjectHideFlags: 0

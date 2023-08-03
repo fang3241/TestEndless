@@ -10,6 +10,7 @@ public class Objective
     protected int progress;
     protected bool status;
     protected typeList type;
+    protected string progressStatus;
 
     public enum typeList
     {
@@ -20,19 +21,25 @@ public class Objective
 
     public Objective()
     {
-        levelController = GameManager.instance.levelController;
+        //levelController = GameManager.instance.levelController;
     }
 
 
     public virtual void addProgress()
     {
         progress++;
+        progressStatus = "(" + progress + "/" + banyak + ")";
         statusChecker();
     }
     
     public string getNama()
     {
         return namaObjective;
+    }
+
+    public string getProgressStatus()
+    {
+        return progressStatus;
     }
 
     public int getProgress()

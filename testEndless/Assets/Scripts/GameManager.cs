@@ -10,8 +10,15 @@ public class GameManager : MonoBehaviour
     public LevelController levelController;
     public ButtonNav buttonNavigation;
 
+    public SoalBab[] kumpulanSoal;
+
     public int selectedChapter;
     public int selectedLevel;
+
+    public int selectedMaxCounter;
+    public int selectedMaxQuestion;
+    public int selectedMaxReadingTime;
+    public int selectedBabs;
 
     private void Awake()
     {
@@ -28,6 +35,5 @@ public class GameManager : MonoBehaviour
         selectedChapter = -1;
         selectedLevel = -1;
     }
-
     
 }

@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {//tambahkan batasan hp, biar gk out of bounds
         playerHP -= dmg;
         LevelController.hpIcoImg[playerHP].gameObject.SetActive(false);
+        LevelController.objectiveController.objectives[2].addProgress();
     }
 
     public void Heal(int addHp)

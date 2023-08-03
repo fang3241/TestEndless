@@ -13,11 +13,11 @@ public class LevelScript : MonoBehaviour
     {
         for(int i = 0; i < 5; i++)
         {
-            Debug.Log(lvlButton[i].name);
+            //Debug.Log(lvlButton[i].name);
             int t = GameManager.instance.selectedChapter * 5 + i + 1;
             lvlButton[i].name = "Level" + t;    
             lvlButton[i].GetComponentInChildren<Text>().text = t.ToString();
-            Debug.Log("Loaded Level : " + (GameManager.instance.selectedChapter * 5 + i));
+            //Debug.Log("Loaded Level : " + (GameManager.instance.selectedChapter * 5 + i));
         }
     }
 

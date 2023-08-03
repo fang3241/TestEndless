@@ -5,22 +5,30 @@ using UnityEngine;
 public class Objective_Bar : Objective
 {
     private SliderScript slider;
-    private int barCounter;
 
-    public Objective_Bar(int b)
+    public Objective_Bar(LevelController l, int b)
     {
-        slider = levelController.slider;
-
+        slider = l.slider;
         this.progress = 0;
         this.banyak = b;
+        this.progressStatus = "(" + progress + "/" + banyak + ")";
         this.namaObjective = $"Isi bar pengetahuan sebanyak {banyak}x";//nyoba cara baru
         this.status = false;
     }
-    
+
+    public override void addProgress()
+    {
+        if(progress < banyak)
+        {
+            progress++;
+        }
+        statusChecker();
+    }
+
     public override bool statusChecker()
     {
-        barCounter = slider.fillBarCounter;
-        if(barCounter >= banyak)
+        progressStatus = "(" + progress + "/" + banyak + ")";
+        if (progress == banyak)
         {
             return status = true;
         }
