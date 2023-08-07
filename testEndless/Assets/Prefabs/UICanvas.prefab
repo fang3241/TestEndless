@@ -1439,6 +1439,7 @@ GameObject:
   - component: {fileID: 448875068759751628}
   - component: {fileID: 448875068759751627}
   - component: {fileID: 448875068759751626}
+  - component: {fileID: 5875132854022956199}
   m_Layer: 5
   m_Name: QuestionPanel
   m_TagString: Untagged
@@ -1504,6 +1505,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &5875132854022956199
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448875068759751631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc2e659c30bb5ee42901922c6247540b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &448875068809692416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelController: {fileID: 0}
+  questionAnim: {fileID: 0}
   QuestionPanel: {fileID: 448875068759751631}
   questionText: {fileID: 448875068619608217}
   optionText: []
@@ -1720,8 +1742,9 @@ MonoBehaviour:
   levelController: {fileID: 0}
   slider: {fileID: 448875069896165533}
   sliderText: {fileID: 448875068288374997}
-  pointRate: 1
+  pointRate: 0
   fillBarCounter: 0
+  barValue: 0
   isTesting: 0
   state: 0
   lastState: 0
@@ -2135,7 +2158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 448875069896165535}
+      - m_Target: {fileID: 5067482980937690900}
         m_TargetAssemblyTypeName: SliderScript, Assembly-CSharp
         m_MethodName: addPoint
         m_Mode: 3
@@ -2848,7 +2871,6 @@ GameObject:
   m_Component:
   - component: {fileID: 448875069896165532}
   - component: {fileID: 448875069896165533}
-  - component: {fileID: 448875069896165535}
   m_Layer: 5
   m_Name: CounterSlider
   m_TagString: Slider
@@ -2930,27 +2952,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &448875069896165535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448875069896165534}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce28efa4f1498734eb3ea9e4880f6a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelController: {fileID: 0}
-  slider: {fileID: 448875069896165533}
-  sliderText: {fileID: 448875068288374997}
-  pointRate: 0.5
-  fillBarCounter: 0
-  isTesting: 0
-  state: 0
-  lastState: 0
-  fillOrEmpty: 0
 --- !u!1 &448875069914048987
 GameObject:
   m_ObjectHideFlags: 0

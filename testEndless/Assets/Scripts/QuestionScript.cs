@@ -14,6 +14,8 @@ public class QuestionScript : MonoBehaviour
 
     public LevelController levelController;
 
+    public Animator questionAnim;
+
     public GameObject QuestionPanel;
     public TextMeshProUGUI questionText;
     public List<TextMeshProUGUI> optionText;
@@ -41,7 +43,7 @@ public class QuestionScript : MonoBehaviour
         //QuestionPanel = transform.GetChild(0).gameObject;
         //Debug.Log("QSS " + levelController == null);
         questionText = QuestionPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
-
+        questionAnim = QuestionPanel.GetComponent<Animator>();
         GameObject temp = QuestionPanel.transform.GetChild(0).GetChild(2).gameObject;
         foreach(TextMeshProUGUI a in temp.GetComponentsInChildren<TextMeshProUGUI>())
         {
@@ -130,11 +132,26 @@ public class QuestionScript : MonoBehaviour
     public void OpenPanel()
     {
         QuestionPanel.SetActive(true);
+        questionAnim.SetTrigger("QuestionStart");
     }
 
 
     public void ClosePanel()
     {
+        StartCoroutine(CloseAnimation());
+    }
+    
+    IEnumerator CloseAnimation()
+    {
+        //yield return new WaitUntil(() => !AnimatorIsPlaying("QuestionFinish"));
+        //questionAnim.SetTrigger("QuestionReset");
+        //yield return new WaitUntil(() => !AnimatorIsPlaying("QuestionReset"));
+        //QuestionPanel.SetActive(false); QuestionPanel.SetActive(false);
+
+        questionAnim.SetTrigger("QuestionFinish");
+        yield return new WaitForSeconds(1);
+        questionAnim.SetTrigger("QuestionReset");
+        yield return new WaitForSeconds(0.5f);
         QuestionPanel.SetActive(false);
     }
 

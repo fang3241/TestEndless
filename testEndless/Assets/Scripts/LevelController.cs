@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviour
     public ObjectiveController objectiveController;
     
     public QuestionScript QuestionScript;
-
+    
     [HideInInspector]
     public AnswerSpawner answerSpawner;
 
@@ -106,7 +106,7 @@ public class LevelController : MonoBehaviour
         slider.levelController = this;
         slider.slider.maxValue = maxSliderCounter;
 
-
+        slider.pointRate = 1;
 
         hp = 3;
         speedScaling = 1;
@@ -239,18 +239,22 @@ public class LevelController : MonoBehaviour
 
     public void DisableOrEnableSpawned()
     {
-        obstacleSpawner.canSpawn = !isQuestionSpawned;
-        collectableSpawner.canSpawn = !isQuestionSpawned;
-
-        ctr = 0;
-
-        if (isQuestionSpawned)
+        if (!isLevelEnd)
         {
-            foreach (Transform a in ObsContainer.transform)
+            obstacleSpawner.canSpawn = !isQuestionSpawned;
+            collectableSpawner.canSpawn = !isQuestionSpawned;
+
+            ctr = 0;
+
+            if (isQuestionSpawned)
             {
-                Destroy(a.gameObject);
+                foreach (Transform a in ObsContainer.transform)
+                {
+                    Destroy(a.gameObject);
+                }
             }
         }
+        
         
     }
 

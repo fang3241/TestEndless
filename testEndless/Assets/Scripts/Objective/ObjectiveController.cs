@@ -136,6 +136,8 @@ public class ObjectiveController : MonoBehaviour
         Qtotal.text = "Total Soal : " + levelController.questionCounter;
         QCorrect.text = "Total Benar : " + levelController.countCorrectAnswer;
         winPanel.SetActive(true);
+
+        GameManager.instance.SaveProgress(objectives);
     }
 
     public void ShowLosePanel()

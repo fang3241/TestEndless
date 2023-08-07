@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public LevelScript levelScript;
     public int[] maxLevelCounters;
     public int[] maxReadingTime;
     public int[] maxLevelQuestions;
 
     public int[,] babLevels;
 
+
     private void Start()
     {
-        maxLevelCounters = new int[3]{ 10, 15, 20 };//per chapter
+        maxLevelCounters = new int[3] { 10, 15, 20 };//per chapter
         maxReadingTime = new int[3] { 15, 12, 9 };//per chapter
         maxLevelQuestions = new int[5] { 3, 3, 3, 5, 5 };//max pertanyaaan per level di masing" chapter
 
@@ -35,7 +37,10 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.selectedMaxQuestion = maxLevelQuestions[l];
         GameManager.instance.selectedMaxReadingTime = maxReadingTime[GameManager.instance.selectedChapter];
         GameManager.instance.selectedBabs = babLevels[GameManager.instance.selectedChapter, l];
-        
+
+        GameManager.instance.LoadProgress();
+
+        levelScript.showPreview();
     }
 
     public void StartGame()

@@ -66,6 +66,8 @@ public class SliderScript : MonoBehaviour
 
     public void addPoint(int add)//buat button testing
     {
+        Debug.Log("ADD " + add);
+        Debug.Log("PR " + this.pointRate);
         slider.value += (add * pointRate);
         Debug.Log("Added " + (add * pointRate));
         
