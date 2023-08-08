@@ -16,6 +16,19 @@ public class ButtonNav : MonoBehaviour
         LevelAir,
         LevelSea,
         Settings,
+
+        Test_Grid,
+        Test_CustomQUI,
+    }
+
+    public void TGrid()
+    {
+        SceneManager.LoadScene(SceneList.Test_Grid.ToString());
+    }
+
+    public void TQUI()
+    {
+        SceneManager.LoadScene(SceneList.Test_CustomQUI.ToString());
     }
 
 

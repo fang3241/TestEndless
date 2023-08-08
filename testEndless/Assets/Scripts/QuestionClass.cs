@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]//buat question reader custom soal
 public class QuestionClass
 {
+    public Sprite questionSprite;
     public string question;
     public string[] options;
     private string rawOption;
@@ -20,12 +21,23 @@ public class QuestionClass
         options = optionSplitter();
     }
 
+    public QuestionClass(Sprite s, string q, string ro, char ans)
+    {
+        questionSprite = s;
+        question = q;
+        rawOption = ro;
+        answer = ans;
+
+        options = optionSplitter();
+    }
+
+
     public string[] optionSplitter()
     {
         string[] temp = new string[4];
 
         int t = 0;
-        foreach (string a in rawOption.Split('\n'))
+        foreach (string a in rawOption.Split('\\'))
         {
             if (a != "")
             {

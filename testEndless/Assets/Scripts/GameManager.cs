@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public Objective[] savedObjective;
 
     public SoalBab[] kumpulanSoal;
+    public QuestionClass[] customSoal;
+    public string customTitle;
 
     public int selectedChapter;
     public int selectedLevel;
