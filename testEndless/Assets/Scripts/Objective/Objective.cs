@@ -18,13 +18,7 @@ public class Objective
     }
 
     protected LevelController levelController;
-
-    public Objective()
-    {
-        //levelController = GameManager.instance.levelController;
-    }
-
-
+    
     public virtual void addProgress()
     {
         progress++;

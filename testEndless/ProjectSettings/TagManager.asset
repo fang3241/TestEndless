@@ -9,6 +9,8 @@ TagManager:
   - Spawner
   - Slider
   - Collectable
+  - ImageView
+  - TextObj
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -45,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1286165863
     locked: 0

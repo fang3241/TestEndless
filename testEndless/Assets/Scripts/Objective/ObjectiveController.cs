@@ -7,12 +7,11 @@ using TMPro;
 public class ObjectiveController : MonoBehaviour
 {
     public LevelController levelController;
-    public GameObject pausePanel;
-    public GameObject winPanel;
-    public GameObject losePanel;
+    public GameObject pausePanel, winPanel, losePanel;
     public TextMeshProUGUI[] objText;
     public TextMeshProUGUI[] objProgress;
     public Objective[] objectives;
+    public Countdown countdown;
 
     public List<Image> levelWinStars;
     public Sprite emptyStar, FilledStar;
@@ -34,17 +33,14 @@ public class ObjectiveController : MonoBehaviour
         objProgress = new TextMeshProUGUI[3];
 
         int t = 0;
-        Debug.Log(pausePanel.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(1).gameObject.name);
-        foreach (TextMeshProUGUI a in pausePanel.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponentsInChildren<TextMeshProUGUI>())
+        foreach (TextMeshProUGUI a in pausePanel.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetComponentsInChildren<TextMeshProUGUI>())
         {
             objText[t] = a;
             t++;
         }
 
-        //Debug.Log(pausePanel.transform.GetChild(0).GetChild(1).GetChild(1).gameObject.name);
-
         t = 0;
-        foreach (TextMeshProUGUI a in pausePanel.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(1).GetComponentsInChildren<TextMeshProUGUI>())
+        foreach (TextMeshProUGUI a in pausePanel.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(1).GetComponentsInChildren<TextMeshProUGUI>())
         {
             objProgress[t] = a;
             t++;
@@ -60,11 +56,14 @@ public class ObjectiveController : MonoBehaviour
         QCorrect = winPanel.transform.GetChild(0).GetChild(1).GetChild(2).GetComponent<TextMeshProUGUI>();
 
 
+
+
     }
 
 
     private void Start()
     {
+
         levelController = GetComponent<LevelController>();
         objCounter = new int[3] { 0, 0, 0 };
         objectives = new Objective[3];
@@ -77,41 +76,17 @@ public class ObjectiveController : MonoBehaviour
         objectives[1] = new Objective_Answer(minAnswer);//brp x jawab benar
         objectives[2] = new Objective_Hit(2);//brp x boleh ke hit
 
-       
         for (int i = 0; i < 3; i++)
         {
             objText[i].text = objectives[i].getNama();
         }
 
-       
-
+        countdown.StartCountdown();
     }
 
-    private void Update()
-    {
-        //sementara
-        if (Input.GetKeyDown(KeyCode.Escape) && !levelController.isLevelEnd)
-        {
-            ShowPause();
-        }
-                
-    }
+    
 
-    public void ShowPause()
-    {
-        updateObjectiveCounter();
-        pausePanel.SetActive(!pausePanel.activeInHierarchy);
-        if (pausePanel.activeSelf)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-    }
-
-    public void updateObjectiveCounter()
+    public void UpdateObjectiveCounter()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -144,7 +119,6 @@ public class ObjectiveController : MonoBehaviour
     {
         losePanel.SetActive(true);
     }
-
-    //kalo load panel, panggil fungsi obj masing masing
+    
 
 }

@@ -6,25 +6,44 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("GM Reference")]
     public QuestionReader qReader;
     public LevelController levelController;
     public ButtonNav buttonNavigation;
+    private Objective[] savedObjective;
+
+    [Header("Save and Load Variables")]
     public int currentUnlockedLevel;//level terjauh yg terbuka
     public int lastFinishedLevel;//level terakhir yg terbuka
-    public Objective[] savedObjective;
 
-    public SoalBab[] kumpulanSoal;
-    public QuestionClass[] customSoal;
-    public string customTitle;
-
+    [Header("Level Manager Variables")]
     public int selectedChapter;
     public int selectedLevel;
+    public float selectedSpeedScaling;
 
+    [Header("Level Controller Variables")]
     public int selectedMaxCounter;
     public int selectedMaxQuestion;
     public int selectedMaxReadingTime;
     public int selectedBabs;
     public bool[] selectedObjLevelStatus;
+
+
+    [Header("Custom Level Variables")]
+    //pilgan
+    public SoalBab[] kumpulanSoal;
+    public QuestionClass[] customSoal;
+
+    //cocok gambar
+    public DragImageController DIcontroller;
+    public Sprite[] imageLists;
+    public string[] answerLists;
+
+    //all
+    public int customType;//0 cocok gambar || 1 pilgan
+    public string customTitle;
+    
+    
 
     private void Awake()
     {
@@ -40,11 +59,12 @@ public class GameManager : MonoBehaviour
         buttonNavigation = this.GetComponent<ButtonNav>();
         selectedChapter = -1;
         selectedLevel = -1;
+        customType = -1;
     }
 
     private void Start()
     {
-        currentUnlockedLevel = PlayerPrefs.GetInt("unlockedLevel", 1);
+        currentUnlockedLevel = 15;
         selectedObjLevelStatus = new bool[3] { false, false, false };
     }
 
@@ -68,9 +88,6 @@ public class GameManager : MonoBehaviour
                 i++;
             }
         }
-
-
-
     }
 
     public void SaveProgress(Objective[] finishedObj)
@@ -84,17 +101,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("unlockedLevel", currentUnlockedLevel);
             PlayerPrefs.SetString("ch" + selectedChapter + "lv" + selectedLevel, save);
         }
-
-
-        //string[] t = save.Split('-');
-
-        //foreach(string a in t)
-        //{
-        //    if(a != "")
-        //    {
-        //        Debug.Log(a);
-        //    }
-        //}
     }
 
     private string ConvertOBJtoString(Objective[] obj)
