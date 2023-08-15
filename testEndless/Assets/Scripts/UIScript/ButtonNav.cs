@@ -10,7 +10,7 @@ public class ButtonNav : MonoBehaviour
     public enum SceneList
     {
         MainMenu,
-        Belajar,
+        Test_SelectBelajar,
         GamemodeSelect,
         ChapterSelect,
         LevelSelect,
@@ -54,7 +54,7 @@ public class ButtonNav : MonoBehaviour
 
     public void toBelajar()
     {
-        LoadScene(SceneList.Belajar.ToString());
+        LoadScene(SceneList.Test_SelectBelajar.ToString());
     }
 
     public void toGamemodeSelect()

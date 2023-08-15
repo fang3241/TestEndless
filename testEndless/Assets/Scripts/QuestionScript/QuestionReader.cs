@@ -33,7 +33,7 @@ public class QuestionReader : MonoBehaviour
         }
         
         isiFile = dataInfo;
-        splitSoal = new List<string>(isiFile.Split('-'));//split per soal
+        splitSoal = new List<string>(isiFile.Split('$'));//split per soal
         foreach (string a in splitSoal.ToArray())//ngebersihin array split persoal
             if (a == "")
                 splitSoal.Remove(a);
@@ -42,7 +42,7 @@ public class QuestionReader : MonoBehaviour
         questions = new QuestionClass[totalSoal];//assign question sesuai banyak soal
         for (int i = 0; i < splitSoal.Count; i++)
         {
-            string[] temp = splitSoal[i].Split('=');
+            string[] temp = splitSoal[i].Split('|');
             QuestionClass qt = new QuestionClass(temp[0], temp[1], temp[2][0]);
             questions[i] = qt;
             temp = null;
