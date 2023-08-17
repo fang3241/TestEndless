@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.selectedMaxCounter = maxLevelCounters[GameManager.instance.selectedChapter];
         GameManager.instance.selectedMaxQuestion = maxLevelQuestions[l];
         GameManager.instance.selectedMaxReadingTime = maxReadingTime[GameManager.instance.selectedChapter];
-        GameManager.instance.selectedBabs = babLevels[GameManager.instance.selectedChapter, l];
+        GameManager.instance.selectedBab = babLevels[GameManager.instance.selectedChapter, l];
         GameManager.instance.selectedSpeedScaling = speedScalings[GameManager.instance.selectedChapter];
 
         GameManager.instance.LoadProgress();

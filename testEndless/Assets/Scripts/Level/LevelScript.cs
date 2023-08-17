@@ -7,7 +7,7 @@ using TMPro;
 public class LevelScript : MonoBehaviour
 {
     public GameObject[] lvlButton;
-    public GameObject levelPreviewPanel;
+    public GameObject levelPreviewPanel, helpPanel;
     public TextMeshProUGUI chapterText;
 
     public Image bgImage;
@@ -110,5 +110,9 @@ public class LevelScript : MonoBehaviour
         levelPreviewPanel.SetActive(false);
     }
 
+    public void showHelp()
+    {
+        helpPanel.SetActive(!helpPanel.activeSelf);
+    }
 
 }

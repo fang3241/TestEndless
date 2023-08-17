@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public int selectedMaxCounter;
     public int selectedMaxQuestion;
     public int selectedMaxReadingTime;
-    public int selectedBabs;
+    public int selectedBab;
     public bool[] selectedObjLevelStatus;
 
 
@@ -42,8 +42,10 @@ public class GameManager : MonoBehaviour
     //all
     public int customType;//0 cocok gambar || 1 pilgan
     public string customTitle;
-    
-    
+
+    [Header("Video Belajar Variables")]
+    public int selectedVideoBelajar;
+
 
     private void Awake()
     {

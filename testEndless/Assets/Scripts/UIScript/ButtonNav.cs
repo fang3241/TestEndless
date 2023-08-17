@@ -10,7 +10,7 @@ public class ButtonNav : MonoBehaviour
     public enum SceneList
     {
         MainMenu,
-        Test_SelectBelajar,
+        SelectBelajar,
         GamemodeSelect,
         ChapterSelect,
         LevelSelect,
@@ -19,14 +19,20 @@ public class ButtonNav : MonoBehaviour
         LevelSea,
         Settings,
 
-        Test_Grid,
-        Test_CustomQUI,
-        Test_Drag,
+        SelectLevelCustom,
+        CustomQuestion,
+        CustomDragnDrop,
+        ShowBelajar,
+    }
+    public void toShowBelajar(int i)
+    {
+        GameManager.instance.selectedBab = i;
+        LoadScene(SceneList.ShowBelajar.ToString());
     }
 
     public void TDragImage()
     {
-        LoadScene(SceneList.Test_Drag.ToString());
+        LoadScene(SceneList.CustomDragnDrop.ToString());
     }
 
     public void BackToT_Grid()
@@ -38,12 +44,12 @@ public class ButtonNav : MonoBehaviour
     public void TGrid(int i)
     {
         GameManager.instance.customType = i;
-        LoadScene(SceneList.Test_Grid.ToString());
+        LoadScene(SceneList.SelectLevelCustom.ToString());
     }
 
     public void TQUI()
     {
-        LoadScene(SceneList.Test_CustomQUI.ToString());
+        LoadScene(SceneList.CustomQuestion.ToString());
     }
 
 
@@ -54,7 +60,7 @@ public class ButtonNav : MonoBehaviour
 
     public void toBelajar()
     {
-        LoadScene(SceneList.Test_SelectBelajar.ToString());
+        LoadScene(SceneList.SelectBelajar.ToString());
     }
 
     public void toGamemodeSelect()
@@ -102,6 +108,8 @@ public class ButtonNav : MonoBehaviour
 
     public void LoadScene(string s)
     {
+        Time.timeScale = 1;
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         sceneLoader = GameObject.FindObjectOfType<SceneLoader>();
         if(sceneLoader != null)
         {
@@ -109,7 +117,9 @@ public class ButtonNav : MonoBehaviour
         }
         else
         {
+            Debug.Log("SCENE LOADER KOSONG");
             SceneManager.LoadScene(s);
         }
     }
+    
 }

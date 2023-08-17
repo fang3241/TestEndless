@@ -5,7 +5,23 @@ using UnityEngine;
 public class Obstacle : Collectable
 {
     public int Damage;
+    public Animator anim;
+
+
+    private void OnDisable()
+    {
+        Debug.Log("Destroyed");
+        //StartCoroutine(Destroy());
+    }
     
+    IEnumerator Destroy()
+    {
+        anim = GetComponent<Animator>();
+        anim.SetTrigger("Destroy");
+        yield return new WaitForSeconds(0.05f);
+        Destroy(this);
+    }
+
     protected override void HitEffect()
     {
         playerController.Hit(Damage);

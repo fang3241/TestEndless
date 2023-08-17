@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7671540889258498568}
   - component: {fileID: -3390247908926594056}
   - component: {fileID: 3358824466068329855}
+  - component: {fileID: 3678053948617999151}
   m_Layer: 0
   m_Name: Obstacle_1
   m_TagString: Collectable
@@ -126,6 +127,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: cad4f676a2e27714ebc906dcd217b180, type: 3}
   speed: 3.36
   Damage: 1
+  anim: {fileID: 0}
 --- !u!50 &3358824466068329855
 Rigidbody2D:
   serializedVersion: 4
@@ -147,3 +149,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3678053948617999151
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604155324047412393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66456d6bf4250bf47899133f5ce866dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

@@ -8,21 +8,23 @@ public class SceneLoader : MonoBehaviour
     public Animator transition;
     public float duration;
 
+   
     private void OnEnable()
     {
+        //GameManager.instance.buttonNavigation.sceneLoader = this;
         Debug.Log("PLAY");
     }
 
     public void PlayAnimation(string s)
     {
-        
         StartCoroutine(Anim(s));
     }
-
+    
     IEnumerator Anim(string s)
     {
+        yield return new WaitForSecondsRealtime(0.1f);
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
         SceneManager.LoadScene(s);
     }
 }

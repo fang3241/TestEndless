@@ -38,14 +38,18 @@ public class QuestionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //questions = new List<QuestionClass>(levelController.gameManager.qReader.questions);
         questions = new List<LevelQuestion>();
         levelController = GameManager.instance.levelController;
-        StartCoroutine(ForceLoadQuestion());
-
+        if(levelController == null)
+        {
+            Debug.Log("Kosong");
+            levelController = GameObject.FindObjectOfType<LevelController>();
+        }
+        //StartCoroutine(ForceLoadQuestion());
+        LoadQuestion();
     }
 
-    IEnumerator ForceLoadQuestion()
+    public void LoadQuestion()
     {
         if (levelController.questionPools.Length != 0)
         {
@@ -59,29 +63,41 @@ public class QuestionScript : MonoBehaviour
                     questions.Add(lq);
                 }
             }
-        }
 
-        a = new LevelQuestion[questions.Count];
-        int i = 0;
-        foreach (LevelQuestion t in questions)
-        {
-            a[i] = t;
-            i++;
-        }
+            a = new LevelQuestion[questions.Count];
+            int i = 0;
+            foreach (LevelQuestion t in questions)
+            {
+                a[i] = t;
+                i++;
+            }
 
-        if (questions.Count == 0)
-        {
-            Debug.Log("RELOADING ");
-            StartCoroutine(ForceLoadQuestion());
+            Debug.Log("LOADED");
         }
         else
         {
-            //entah knp ke trigger 2x, padahal gk ngereload coroutine
-            Debug.Log("QUESTION LOADED");
+            Debug.Log("POOL SOAL KOSONG");
         }
-
-        yield return null;
     }
+
+    //IEnumerator ForceLoadQuestion()
+    //{
+        
+
+        
+
+    //    if (questions.Count == 0)
+    //    {
+    //        Debug.Log("RELOADING ");
+    //        StartCoroutine(ForceLoadQuestion());
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("QUESTION LOADED");
+    //    }
+
+    //    yield return null;
+    //}
 
     public void SetQuestion()
     {

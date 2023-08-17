@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
 
     private Transform playerTransform;
+    public GameObject hurtPanel, healPanel;
     public float speed;
     public int playerLane;
 
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
     public void Hit(int dmg)
     {//tambahkan batasan hp, biar gk out of bounds
+        StartCoroutine(EventPanel(0));
         playerHP -= dmg;
         LevelController.hpIcoImg[playerHP].gameObject.SetActive(false);
         LevelController.objectiveController.objectives[2].addProgress();
@@ -71,7 +73,7 @@ public class PlayerController : MonoBehaviour
         if (playerHP < 3)
         {
             LevelController.hpIcoImg[playerHP].gameObject.SetActive(true);
-            playerHP++;
+            StartCoroutine(EventPanel(1));
         }
     }
 
@@ -88,5 +90,24 @@ public class PlayerController : MonoBehaviour
         playerTransform.rotation = Quaternion.Euler(0, 0, 0);
         playerLane = laneDest;
         isMoving = false;
+    }
+
+    IEnumerator EventPanel(int i)
+    {
+        if(i == 0)
+        {
+            hurtPanel.SetActive(true);
+            EZCameraShake.CameraShaker.Instance.ShakeOnce(4f, 4f, 0f, 0.4f);
+            yield return new WaitForSeconds(0.3f);
+            hurtPanel.SetActive(false);
+        }else if(i == 1)
+        {
+            healPanel.SetActive(true);
+            playerHP++;
+            yield return new WaitForSeconds(0.3f);
+            healPanel.SetActive(false);
+        }
+        yield return null;
+        
     }
 }

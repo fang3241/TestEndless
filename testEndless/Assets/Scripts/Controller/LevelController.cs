@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelController : MonoBehaviour
 {
@@ -21,11 +22,9 @@ public class LevelController : MonoBehaviour
     
     [HideInInspector]
     public AnswerSpawner answerSpawner;
-
-    [HideInInspector]
+    
     public ObstacleSpawner obstacleSpawner;
-
-    [HideInInspector]
+    
     public CollectableSpawner collectableSpawner;
 
     [HideInInspector]
@@ -50,7 +49,7 @@ public class LevelController : MonoBehaviour
 
     [Header("Level Controller Variables")]
     public GameObject pausePanel;
-
+    public TextMeshProUGUI levelName;
     public int hp;
     public float speedScaling;
     
@@ -80,9 +79,9 @@ public class LevelController : MonoBehaviour
         maxQuestion = gameManager.selectedMaxQuestion;
         maxReadingTime = gameManager.selectedMaxReadingTime;
 
-        questionPools = new SoalBab[gameManager.selectedBabs];
+        questionPools = new SoalBab[gameManager.selectedBab];
 
-        for (int i = 0; i < gameManager.selectedBabs; i++)
+        for (int i = 0; i < gameManager.selectedBab; i++)
         {
             questionPools[i] = gameManager.kumpulanSoal[i];
         }
@@ -130,6 +129,8 @@ public class LevelController : MonoBehaviour
         isAnswerSpawned = false;
         isQuestionSpawned = false;
         isAnswered = false;
+
+        levelName.text = "Level " + (GameManager.instance.selectedChapter+1) + "-" + (GameManager.instance.selectedLevel + 1);
     }
 
     private void Update()
@@ -178,7 +179,7 @@ public class LevelController : MonoBehaviour
         Debug.Log("isanswerSpawned : " + isAnswerSpawned);
         Debug.Log("isanswered : " + isAnswered);
 
-        DisableOrEnableSpawned();
+        DisableOrEnableSpawned(false);
         QuestionScript.SetQuestion();
     }
 
@@ -224,16 +225,16 @@ public class LevelController : MonoBehaviour
 
         LevelEndChecker();
         QuestionScript.ClosePanel();
-        DisableOrEnableSpawned();
+        DisableOrEnableSpawned(true);
     }
 
-    public void DisableOrEnableSpawned()
+    public void DisableOrEnableSpawned(bool stat)
     {
         if (!isLevelEnd)
         {
-            obstacleSpawner.canSpawn = !isQuestionSpawned;
-            collectableSpawner.canSpawn = !isQuestionSpawned;
-
+            obstacleSpawner.canSpawn = stat;
+            collectableSpawner.canSpawn = stat;
+            
             ctr = 0;
 
             if (isQuestionSpawned)
@@ -243,6 +244,11 @@ public class LevelController : MonoBehaviour
                     Destroy(a.gameObject);
                 }
             }
+        }
+        else
+        {
+            obstacleSpawner.canSpawn = false;
+            collectableSpawner.canSpawn = false;
         }
         
         
@@ -297,6 +303,7 @@ public class LevelController : MonoBehaviour
         speedScaling = 0;
         player.gameObject.SetActive(false);
         isLevelEnd = true;
+        DisableOrEnableSpawned(false);
         objectiveController.ShowLosePanel();
     }
 

@@ -61,7 +61,7 @@ public class Collectable : MonoBehaviour
         Debug.Log("Hit Effect Applied");
     }
 
-    protected void DestroyObject()
+    protected virtual void DestroyObject()
     {
         Destroy(this.gameObject);
     }
