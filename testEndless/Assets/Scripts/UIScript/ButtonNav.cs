@@ -122,4 +122,18 @@ public class ButtonNav : MonoBehaviour
         }
     }
     
+    public string getCurrentSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+
+    public int getCurrentSceneIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public bool checkIfSceneActive(SceneList s)
+    {
+        return getCurrentSceneName() == s.ToString();
+    }
 }

@@ -48,6 +48,7 @@ public class VideoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.instance.StopAll();
         press = false;
 
         Debug.Log(videos[videoIndex].length);
