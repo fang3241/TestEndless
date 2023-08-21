@@ -27,6 +27,29 @@ public class ButtonNav : MonoBehaviour
     public void toShowBelajar(int i)
     {
         GameManager.instance.selectedBab = i;
+
+        switch (i)
+        {
+            case 0:
+                GameManager.instance.customTitle = "Materi Rukun Iman";
+                break;
+            case 1:
+                GameManager.instance.customTitle = "Materi Rukun Islam";
+                break;
+            case 2:
+                GameManager.instance.customTitle = "Materi Surah Pendek";
+                break;
+            case 3:
+                GameManager.instance.customTitle = "Materi Wudhu";
+                break;
+            case 4:
+                GameManager.instance.customTitle = "Materi Sholat";
+                break;
+            default:
+                GameManager.instance.customTitle = "Materi Pembelajaran";
+                break;
+        }
+
         LoadScene(SceneList.ShowBelajar.ToString());
     }
 

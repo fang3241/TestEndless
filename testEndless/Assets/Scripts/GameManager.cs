@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currentUnlockedLevel = 15;
+        //currentUnlockedLevel = PlayerPrefs.GetInt("unlockedLevel", 0);
         selectedObjLevelStatus = new bool[3] { false, false, false };
     }
 

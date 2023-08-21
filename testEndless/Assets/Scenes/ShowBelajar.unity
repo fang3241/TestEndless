@@ -1012,11 +1012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: {fileID: 2041099090}
   maxTime: {fileID: 690621679}
+  levelTitle: {fileID: 1420793274}
   videos:
   - {fileID: 32900000, guid: 43d575898a1872d4d99b4c913b837ad6, type: 3}
   - {fileID: 32900000, guid: 05fea686681129c4a9a1827954f1678d, type: 3}
   - {fileID: 32900000, guid: 2538713f54a84004fa8ba6df9a16c0b0, type: 3}
   - {fileID: 32900000, guid: 75829896a4c8c3d43b17de197da88413, type: 3}
+  - {fileID: 32900000, guid: 7f119dbfa6dd81a428a0b52c77e8e0cb, type: 3}
   vidPlayer: {fileID: 115040056}
   renderTextureMain: {fileID: 8400000, guid: 98d50439137d28c44b0d0d7b75b52308, type: 2}
   screen: {fileID: 1408552159}
@@ -2384,6 +2386,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 569599810362048511, guid: 6c886e5e75210fe4d9d9b11dcd0ee0bf, type: 3}
   m_PrefabInstance: {fileID: 1420793272}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1420793274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 569599808738067083, guid: 6c886e5e75210fe4d9d9b11dcd0ee0bf, type: 3}
+  m_PrefabInstance: {fileID: 1420793272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1558021229
 GameObject:
   m_ObjectHideFlags: 0

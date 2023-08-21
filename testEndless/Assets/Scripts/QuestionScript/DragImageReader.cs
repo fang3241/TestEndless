@@ -20,7 +20,7 @@ public class DragImageReader : MonoBehaviour
 
         GameManager.instance.customTitle = mainFolderTitle;
 
-        //baca file txt nya buat tau ada berapa isinya
+        //read file txt
         StreamReader reader = new StreamReader(folderPath + "/" + "Jawaban.txt");
         if (reader != null)
         {
@@ -29,9 +29,10 @@ public class DragImageReader : MonoBehaviour
                 dataInfo = dataInfo + reader.ReadLine();
             }
         }
-        
 
-        answerLists = new List<string>(dataInfo.Split('-'));//split per soal
+
+        //split per soal
+        answerLists = new List<string>(dataInfo.Split('-'));
         foreach (string a in answerLists.ToArray())//ngebersihin array split persoal
             if (a == "")
                 answerLists.Remove(a);
@@ -42,6 +43,7 @@ public class DragImageReader : MonoBehaviour
         //    Debug.Log(a);
         //}
 
+        //ambil banyak soal
         totalSoal = answerLists.ToArray().Length;
 
         imageLists = new List<Sprite>();

@@ -7,7 +7,7 @@ using TMPro;
 
 public class VideoManager : MonoBehaviour
 {
-    public TextMeshProUGUI currentTime, maxTime;
+    public TextMeshProUGUI currentTime, maxTime, levelTitle;
     public VideoClip[] videos;
     public VideoPlayer vidPlayer;
     public RenderTexture renderTextureMain;
@@ -48,6 +48,7 @@ public class VideoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelTitle.text = GameManager.instance.customTitle;
         AudioManager.instance.StopAll();
         press = false;
 
