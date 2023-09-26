@@ -52,10 +52,31 @@ public class LevelScript : MonoBehaviour
         {
             int t = i + 1;
             lvlButton[i].name = "Level" + t;
+            
             if (maxLoadedLevel <= i)
             {
                 Debug.Log(i + " Locked");
                 lvlButton[i].GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                bool[] data = GameManager.instance.LoadSelectedProgress(ch - 1, i);
+
+                Debug.Log("ch" + ch + "lv" + t + " : " + data[0] + data[1] + data[2]);
+                
+                int num = 0;
+                foreach (Image s in lvlButton[i].transform.GetChild(1).GetComponentsInChildren<Image>())
+                {
+                    if (data[num])
+                    {
+                        s.sprite = fullStar;
+                    }
+                    else
+                    {
+                        s.sprite = emptyStar;
+                    }
+                    num++;
+                }
             }
             lvlButton[i].GetComponentInChildren<TextMeshProUGUI>().text = ch + "-" + t.ToString();
             //Debug.Log("Loaded Level : " + (GameManager.instance.selectedChapter * 5 + i));

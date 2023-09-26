@@ -32,10 +32,10 @@ public class ObstacleSpawner : MonoBehaviour
         return new Vector2(transform.position.x, Lane.objectPosition[lane]);
     }
     
-    public void SpawnAtLane(GameObject obj, int lane)
-    {
-        Instantiate(obj, LaneCord(lane), transform.rotation);
-    }
+    //public void SpawnAtLane(GameObject obj, int lane)
+    //{
+    //    Instantiate(obj, LaneCord(lane), transform.rotation);
+    //}
     public IEnumerator SpawnTimer(float time)
     {
         yield return new WaitForSeconds(time);

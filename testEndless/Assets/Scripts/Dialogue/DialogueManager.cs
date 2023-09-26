@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -9,25 +10,34 @@ public class DialogueManager : MonoBehaviour
 
     public Character[] characters;
 
+    //public CharacterDialogues[] cDialogue;
+
+    CharacterDialogues selectedCDialogue;
 
     public float letterSpeed;
-    public Image charImage;
-    public Text dialogueName;
-    public Text dialogueText;
+    public Image charImage, bgImg;
+    public Sprite[] bgImages;
 
+    public TextMeshProUGUI dialogueName;
+    public TextMeshProUGUI dialogueText;
+    
     private void Start()
     {
+        int id = -1;
         sentences = new Queue<Dialogue>();
-        
+
+        selectedCDialogue = GameManager.instance.selectedDialogue;
+
+        StartDialogue(id);
     }
 
-    public void StartDialogue(Dialogue[] dialogues)
+    public void StartDialogue(int id)
     {
         Debug.Log("start dialog ");
 
         sentences.Clear();
 
-        foreach(Dialogue dialogue in dialogues)
+        foreach(Dialogue dialogue in selectedCDialogue.dialogues)
         {
             sentences.Enqueue(dialogue);
         }
@@ -53,11 +63,23 @@ public class DialogueManager : MonoBehaviour
 
         Dialogue charSentence = sentences.Dequeue();
 
+        if(characters[charSentence.charID].spriteChar == null)//narasi
+        {
+            charImage.gameObject.SetActive(false);
+            dialogueName.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            charImage.gameObject.SetActive(true);
+            dialogueName.transform.parent.gameObject.SetActive(true);
 
-        charImage.sprite = characters[charSentence.charID].spriteChar;
-        dialogueName.text = characters[charSentence.charID].name;
-        //dialogueText.text = charSentence.sentences;
+            dialogueName.text = characters[charSentence.charID].name;
+            charImage.sprite = characters[charSentence.charID].spriteChar;
+        }
 
+        bgImg.sprite = selectedCDialogue.bgImage;
+
+        
         Debug.Log(characters[charSentence.charID].name + " : " + charSentence.sentences);
 
         StopAllCoroutines();
@@ -81,5 +103,20 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         Debug.Log("end dialogue");
+
+        int type = GameManager.instance.selectedChapter;
+
+        if(type == 0)
+        {
+            GameManager.instance.buttonNavigation.toLevelLand();
+        }else if (type == 1)
+        {
+            GameManager.instance.buttonNavigation.toLevelWater();
+        }
+        else
+        {
+            GameManager.instance.buttonNavigation.toLevelAir();
+        }
+
     }
 }

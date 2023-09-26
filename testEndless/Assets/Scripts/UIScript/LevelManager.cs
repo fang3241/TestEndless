@@ -16,8 +16,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        maxLevelCounters = new int[3] { 10, 15, 20 };//per chapter
-        maxReadingTime = new int[3] { 15, 12, 9 };//per chapter
+        maxLevelCounters = new int[3] { 25, 40, 50 };//per chapter
+        maxReadingTime = new int[3] { 30, 24, 18 };//per chapter
         maxLevelQuestions = new int[5] { 3, 3, 3, 5, 5 };//max pertanyaaan per level di masing" chapter
         speedScalings = new float[3] { 1.1f, 1.25f, 1.5f };
 
@@ -49,17 +49,43 @@ public class LevelManager : MonoBehaviour
 
     public void StartGame()
     {
-        if(GameManager.instance.selectedChapter == 0)
+        bool read = false;
+        Debug.Log(GameManager.instance.selectedLevel);
+
+        int sLevel = (GameManager.instance.selectedChapter * 5) + GameManager.instance.selectedLevel;
+
+        foreach(CharacterDialogues a in GameManager.instance.dialogues)
         {
-            GameManager.instance.buttonNavigation.toLevelLand();
-        }else if (GameManager.instance.selectedChapter == 1)
-        {
-            GameManager.instance.buttonNavigation.toLevelWater();
+            Debug.Log(a.level);
+            if(sLevel == a.level)
+            {
+                read = true;
+                GameManager.instance.selectedDialogue = a;
+            }
         }
-        else if (GameManager.instance.selectedChapter == 2)
+
+        if (read)
         {
-            GameManager.instance.buttonNavigation.toLevelAir();
+            GameManager.instance.buttonNavigation.toDialogue();
         }
+        else
+        {
+            if (GameManager.instance.selectedChapter == 0)
+            {
+                GameManager.instance.buttonNavigation.toLevelLand();
+            }
+            else if (GameManager.instance.selectedChapter == 1)
+            {
+                GameManager.instance.buttonNavigation.toLevelWater();
+            }
+            else if (GameManager.instance.selectedChapter == 2)
+            {
+                GameManager.instance.buttonNavigation.toLevelAir();
+            }
+        }
+        
+
+        
 
 
     }

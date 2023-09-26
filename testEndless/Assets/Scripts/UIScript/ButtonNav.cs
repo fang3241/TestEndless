@@ -23,7 +23,15 @@ public class ButtonNav : MonoBehaviour
         CustomQuestion,
         CustomDragnDrop,
         ShowBelajar,
+
+        Dialogue,
     }
+
+    public void toDialogue()
+    {
+        LoadScene(SceneList.Dialogue.ToString());
+    }
+
     public void toShowBelajar(int i)
     {
         GameManager.instance.selectedBab = i;

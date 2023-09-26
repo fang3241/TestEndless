@@ -62,7 +62,8 @@ public class CustomQController : MonoBehaviour
                 //resettimer
                 Debug.Log("Waktu habis");
                 salah++;
-                ResetTimer();
+                current++;
+                FinishChecker();
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -115,19 +116,24 @@ public class CustomQController : MonoBehaviour
         }
 
         current++;
-        if(current == total)
+        FinishChecker();
+        
+    }
+    
+    public void FinishChecker()
+    {
+        if (current == total)
         {
             Finish();
         }
         else
         {
-            ResetTimer();
-            UpdateUI();
+
             LoadNextQuestion();
             //load next soal
         }
-        
     }
+
 
     public void UpdateUI()
     {
@@ -159,6 +165,8 @@ public class CustomQController : MonoBehaviour
 
     public void LoadNextQuestion()
     {
+        ResetTimer();
+        UpdateUI();
         QuestionClass q = GameManager.instance.customSoal[current];
 
         if(q.questionSprite == null)

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93834103796dd5c4c8c82d116b308adb, type: 3}
+  m_Name: DIalog Sebelum naik kapal
+  m_EditorClassIdentifier: 
+  level: 5
+  bgImage: {fileID: 21300000, guid: d23ee905ccbaf18499101b1927fad800, type: 3}
+  dialogues:
+  - charID: 0
+    sentences: Setelah melewati jalan yang menantang, akhirnya kita sampai di pelabuhan.
+      Selanjutnya, kita akan menyebrangi pulau untuk pergi ke bandara.
+  - charID: 4
+    sentences: Alhamdulillah, akhirnya sampai juga di pelabuhan. Ibu dan anak anak,
+      apakah semuanya aman terkendali ?
+  - charID: 5
+    sentences: Alhamdulillah, aman.
+  - charID: 1
+    sentences: Aman yah
+  - charID: 2
+    sentences: Agak mual yah, tapi masih kuat kok
+  - charID: 3
+    sentences: (Tertidur)
+  - charID: 4
+    sentences: Ya sudah, kalau semuanya aman, ayo kita lanjutkan perjalanan.
+  - charID: 0
+    sentences: Setelah mengantri untuk masuk kapal, akhirnya giliran mobil kita.
+      Tak lama kemudian, perjalanan pun berlanjut.

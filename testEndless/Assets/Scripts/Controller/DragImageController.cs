@@ -78,6 +78,7 @@ public class DragImageController : MonoBehaviour
             temp.Add(i);
         }
 
+        //randomize buat gambar
         RandomizeList();
         
         for(int i = 0; i < total; i++)
@@ -91,6 +92,7 @@ public class DragImageController : MonoBehaviour
             imageList.Add(imgObj.GetComponent<ImgScript>());
         }
 
+        //randomize buat text
         RandomizeList();
 
         for (int i = 0; i < total; i++)

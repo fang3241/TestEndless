@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
     [Header("Video Belajar Variables")]
     public int selectedVideoBelajar;
 
+    [Header("Dialogues Variables")]
+    public CharacterDialogues[] dialogues;
+    public CharacterDialogues selectedDialogue;
 
     private void Awake()
     {
@@ -71,10 +74,39 @@ public class GameManager : MonoBehaviour
         selectedObjLevelStatus = new bool[3] { false, false, false };
     }
 
+    public bool[] LoadSelectedProgress(int ch, int lv)
+    {
+        bool[] arr = { false, false, false };
+
+        string load = PlayerPrefs.GetString("ch" + ch + "lv" + lv, "-0-0-0");
+        //Debug.Log("ch" + ch + "lv" + lv);
+        //Debug.Log("MAN : " + load);
+
+        int i = 0;
+        foreach (string a in load.Split('-'))
+        {
+            if (a != "")
+            {
+                if (a == "0")
+                {
+                    arr[i] = false;
+                }
+                else
+                {
+                    arr[i] = true;
+                }
+                i++;
+            }
+        }
+
+        return arr;
+    }
+
     public void LoadProgress()
     {
         string load = PlayerPrefs.GetString("ch" + selectedChapter + "lv" + selectedLevel, "-0-0-0");
-
+        //Debug.Log("ch" + selectedChapter + "lv" + selectedLevel);
+        //Debug.Log("OBJ : " + load);
         int i = 0;
         foreach(string a in load.Split('-'))
         {

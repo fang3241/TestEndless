@@ -111,7 +111,7 @@ public class VideoManager : MonoBehaviour
         if (press)
         {
             Debug.Log(imgBtn.rectTransform.localPosition);
-            imgBtn.rectTransform.localPosition = new Vector2(5, 2);
+            //imgBtn.rectTransform.localPosition = new Vector2(5, 2);
             
             vidPlayer.Pause();
             imgBtn.sprite = playImg;
@@ -121,7 +121,7 @@ public class VideoManager : MonoBehaviour
         {
             //vidPlayer.time = Mathf.Lerp(0, 1, (float)vidPlayer.time);
             imgBtn.sprite = pauseImg;
-            imgBtn.rectTransform.localPosition = new Vector2(0, 0);
+            //imgBtn.rectTransform.localPosition = new Vector2(0, 0);
             vidPlayer.Play();
 
             

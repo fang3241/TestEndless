@@ -48,17 +48,33 @@ MonoBehaviour:
   qReader: {fileID: 0}
   levelController: {fileID: 0}
   buttonNavigation: {fileID: 0}
+  currentUnlockedLevel: 0
+  lastFinishedLevel: 0
+  selectedChapter: 0
+  selectedLevel: 0
+  selectedSpeedScaling: 0
+  selectedMaxCounter: 0
+  selectedMaxQuestion: 0
+  selectedMaxReadingTime: 0
+  selectedBab: 0
+  selectedObjLevelStatus: 
   kumpulanSoal:
   - {fileID: 11400000, guid: cbfa0374ebc261149adb93e767aa6afb, type: 2}
   - {fileID: 11400000, guid: 721ba50b64397464ca4d38e1a47264aa, type: 2}
   - {fileID: 11400000, guid: b24e1de72d714874aa536e01a5dee6ac, type: 2}
   - {fileID: 11400000, guid: cfd3a60c83af86b43b0a5e5fdaec560b, type: 2}
   - {fileID: 11400000, guid: 68cce86e81af4de4cacf202ac1ad5b8d, type: 2}
-  selectedChapter: 0
-  selectedLevel: 0
-  selectedMaxCounter: 0
-  selectedMaxQuestion: 0
-  selectedBabs: 0
+  customSoal: []
+  DIcontroller: {fileID: 0}
+  imageLists: []
+  answerLists: []
+  customType: 0
+  customTitle: 
+  selectedVideoBelajar: 0
+  dialogues:
+  - {fileID: 11400000, guid: 8f74bf6698612ca4e89e69fdb53e2af4, type: 2}
+  - {fileID: 11400000, guid: ce3259ef27528b84e810e810d3a9a2b2, type: 2}
+  - {fileID: 11400000, guid: 4ec2b64c09567cd4ebf653b3a4826330, type: 2}
 --- !u!114 &4569827644304369478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,10 +87,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5bc141f56fdebe42ac78d35dec84736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soalText: {fileID: 0}
-  filename: SoalMudah
   splitSoal: []
   questions: []
+  qSprites: []
+  totalSoal: 0
 --- !u!114 &-611331234938789686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,3 +103,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cfc4e6790d33e46b79bb637317e8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneLoader: {fileID: 0}
