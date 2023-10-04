@@ -59,9 +59,9 @@ MonoBehaviour:
   selectedBab: 0
   selectedObjLevelStatus: 
   kumpulanSoal:
-  - {fileID: 11400000, guid: cbfa0374ebc261149adb93e767aa6afb, type: 2}
-  - {fileID: 11400000, guid: 721ba50b64397464ca4d38e1a47264aa, type: 2}
-  - {fileID: 11400000, guid: b24e1de72d714874aa536e01a5dee6ac, type: 2}
+  - {fileID: 11400000, guid: 8558e4b9177e67b42bc5940c1e2c12d3, type: 2}
+  - {fileID: 11400000, guid: 7c7b04ed48c962f40866cc9ac21465c6, type: 2}
+  - {fileID: 11400000, guid: 0bb4bd2db4c54cb4ea46b9210ba563fa, type: 2}
   - {fileID: 11400000, guid: cfd3a60c83af86b43b0a5e5fdaec560b, type: 2}
   - {fileID: 11400000, guid: 68cce86e81af4de4cacf202ac1ad5b8d, type: 2}
   customSoal: []
@@ -75,6 +75,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f74bf6698612ca4e89e69fdb53e2af4, type: 2}
   - {fileID: 11400000, guid: ce3259ef27528b84e810e810d3a9a2b2, type: 2}
   - {fileID: 11400000, guid: 4ec2b64c09567cd4ebf653b3a4826330, type: 2}
+  selectedDialogue: {fileID: 0}
 --- !u!114 &4569827644304369478
 MonoBehaviour:
   m_ObjectHideFlags: 0

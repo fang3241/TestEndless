@@ -8,9 +8,10 @@ public class SoalBab : ScriptableObject
 {
     public enum BabMateri
     {
-        Rukun_Iman,
-        Rukun_Islam,
-        Surah_Pendek,
+        
+        KitabAllah,
+        BersikapJujur,
+        PengurusanJenazah,
         Wudhu,
         Sholat,
     }

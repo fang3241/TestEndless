@@ -16,10 +16,137 @@ MonoBehaviour:
   levelQuestions:
   - questionImage: {fileID: 0}
     hasImage: 0
-    question: Solat magrib dikerjakan ketika matahari sudah
+    question: Solat wajib yang harus dilakukan sehari semalam semuanya berjumlah
     options:
-    - Terbit
-    - Panas
-    - Terbenam
-    - Tengah
+    - 1 waktu
+    - 2 waktu
+    - 4 waktu
+    - 5 waktu
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Solat merupakan rukun Islam yang ke
+    options:
+    - 1
+    - 2
+    - 3
+    - 4
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Sebelum melakukan solat, sebaiknya kita mengumandangkan
+    options:
+    - Solawat
+    - Tahmid
+    - Adzan
+    - Tahlil
     answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Posisi imam ketika solat berjamaah adalah
+    options:
+    - Di depan makmum
+    - Di belakang makmum
+    - Di samping kanan makmum
+    - Di samping kiri makmum
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Doa qunut biasanya dibacakan ketika melakukan solat
+    options:
+    - Dhuhur
+    - Subuh
+    - Ashar
+    - Maghrib
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Mencegah kita dalam menghindari perbuatan keji dan mungkar adalah
+    options:
+    - rukun salat
+    - hikmah salat
+    - syarat sah salat
+    - membatalkan salat
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: "6.\tSolat berjamaah pahalanya lebih besar\u2026dibandingkan dengan
+      solat sendirian"
+    options:
+    - 26 derajat
+    - 27 derajat
+    - 28 derajat
+    - 29 derajat
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: "Orang Islam wajib salat sehari semalam berjumlah \u2026. waktu"
+    options:
+    - 2
+    - 3
+    - 4
+    - 5
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Salat merupakan ibadah yang sangat penting. Salat adalah tiang dari '
+    options:
+    - Hidup
+    - Agama
+    - Rezeki
+    - Kerja
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Membaca surat Al-fatihah ketika salat hukumnya adalah '
+    options:
+    - Sunnah
+    - Makruh
+    - Haram
+    - Wajib
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Salat fardu wajib mulai dikerjakan setelah '
+    options:
+    - Menikah
+    - Punya anak
+    - Balig
+    - Sekolah SMP
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Salat fardu yang dikerjakan setelah terbit fajar adalah '
+    options:
+    - 'Salat Maghrib  '
+    - 'Salat Isya   '
+    - 'Salat Subuh  '
+    - Salat Dhuhur
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Sebelum salat kita harus '
+    options:
+    - Mandi
+    - Sikat gigi
+    - Tayamum
+    - Wudhu
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Ketika takbiratul ihram maka kita membaca '
+    options:
+    - Bismillah
+    - Allahu Akbar
+    - Alhamdulillah
+    - Subhanallah
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Ketika takbiratul ihram sambil mengangkat '
+    options:
+    - Kedua tangan
+    - Kedua kaki
+    - Kedua lutut
+    - Jari tangan
+    answer: 65

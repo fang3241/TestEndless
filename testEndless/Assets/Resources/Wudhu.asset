@@ -16,10 +16,141 @@ MonoBehaviour:
   levelQuestions:
   - questionImage: {fileID: 0}
     hasImage: 0
-    question: Yang terakhir dibasuh ketika wudhu adalah
+    question: Apa arti dari "wudhu" dalam Islam?
     options:
-    - Rambut kepala
-    - Kedua telinga
-    - Kedua kaki
-    - Kedua tangan
+    - Mandi
+    - Bersuci
+    - Shalat
+    - Berpuasa
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apa yang harus dilakukan jika seseorang mengalami hadats besar (janabah)
+      setelah melakukan wudhu?
+    options:
+    - Melakukan wudhu lagi
+    - Mandi junub
+    - Tidak perlu melakukan apa-apa
+    - Melanjutkan shalat tanpa wudhu
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apakah yang membatalkan wudhu?
+    options:
+    - Makan daging sapi
+    - Buang angin
+    - Mencuci tangan
+    - Tidur
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Bagaimana cara membersihkan wajah saat melakukan wudhu?
+    options:
+    - Menggosok wajah dengan tangan
+    - Mengusap wajah dengan air hingga basah
+    - Mencuci wajah dengan air hingga bersih
+    - Menyiramkan air ke wajah
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apakah wudhu wajib bagi seseorang yang hendak membaca Al-Quran?
+    options:
+    - Tidak wajib
+    - Wajib
+    - Sunnah
+    - Mustahab
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apa yang harus dilakukan jika air tidak tersedia saat akan melakukan
+      wudhu?
+    options:
+    - Tidak melakukan wudhu
+    - Menyiramkan tanah ke tubuh
+    - Melakukan tayamum
+    - Menggunakan air mineral
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berapa kali anggota tubuh harus dicuci saat melakukan wudhu?
+    options:
+    - Sekali
+    - Dua kali
+    - Tiga kali
+    - Empat kali
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apakah orang yang sedang sakit dan tidak dapat bergerak wajib melakukan
+      wudhu untuk shalat?
+    options:
+    - Wajib
+    - Sunnah
+    - Tidak wajib
+    - Makruh
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Setelah membasuh kedua telapak tangan, Langkah selanjutnya adalah ?
+    options:
+    - Membasuh tangan kanan dan kiri hingga sikut
+    - Membasuh kaki kanan dan kiri hingga mata kaki
+    - Membersihkan hidung
+    - 'Berkumur '
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Membaca niat wudhu dilakukan saat ?
+    options:
+    - Sebelum wudhu
+    - Sesudah wudhu
+    - Dipertengahan wudhu
+    - Saat membasuh kedua telapak tangan
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Hal terakhir yang dilakukan saat berwudhu adalah ?
+    options:
+    - Membasuh muka
+    - Membasuh tangan kanan dan kiri hingga sikut
+    - Membaca niat wudhu
+    - Membaca doa sesudah berwudhu
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Saat waktu untuk sholat tiba, andi berwudhu untuk sholat. Saat membasuh
+      kedua tangan, dia lupa Langkah selanjutnya. Langkah selanjutnya adalah ?
+    options:
+    - Mengusap kepala dan Sebagian rambut
+    - Membasuh muka
+    - Membaca niat wudhu
+    - Membasuh kaki
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Saat hendak sholat, budi lupa apakah dia sudah melakukan wudhu atau
+      belum. Yang harus dia lakukan adalah?
+    options:
+    - Tidak perlu melakukan apa-apa
+    - Melakukan wudhu lagi sebagai tanda kehati-hatian
+    - Melanjutkan shalat tanpa wudhu
+    - Mencari orang lain untuk memastikannya
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Rukun wudhu yang pertama adalah
+    options:
+    - Niat
+    - Membasuh muka
+    - Membasuh kaki
+    - Tertib
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Saat membasuh kedua telapak tangan, yang dibaca adalah?
+    options:
+    - Niat wudhu
+    - Istighfar
+    - Bismillah
+    - Doa mau makan
     answer: 67
