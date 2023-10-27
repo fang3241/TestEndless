@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
         if (GameManager.instance.buttonNavigation.checkIfSceneActive(ButtonNav.SceneList.MainMenu))
         {
             Debug.Log("Playing Music");
-            //Play("zeta1");
+            Play("lagu3");
         }
 
     }
@@ -82,6 +82,20 @@ public class AudioManager : MonoBehaviour
         {
             s.source.Stop();
         }
+    }
+
+    public string GetCurrentlyPlayingAudio()
+    {
+        string name = "";
+        foreach(Sound a in sounds)
+        {
+            if (isSoundPlaying(a.name))
+            {
+                name = a.name;
+            }
+        }
+
+        return name;
     }
 
     public void StopAllandPlay(string name)

@@ -39,13 +39,13 @@ public class ButtonNav : MonoBehaviour
         switch (i)
         {
             case 0:
-                GameManager.instance.customTitle = "Materi Rukun Iman";
+                GameManager.instance.customTitle = "Mengenal Kitab-kitab Allah Swt";
                 break;
             case 1:
-                GameManager.instance.customTitle = "Materi Rukun Islam";
+                GameManager.instance.customTitle = "Bersikap Jujur";
                 break;
             case 2:
-                GameManager.instance.customTitle = "Materi Surah Pendek";
+                GameManager.instance.customTitle = "Pengurusan Jenazah";
                 break;
             case 3:
                 GameManager.instance.customTitle = "Materi Wudhu";
@@ -87,11 +87,20 @@ public class ButtonNav : MonoBehaviour
     public void toMenu()
     {
         LoadScene(SceneList.MainMenu.ToString());
+        if (!AudioManager.instance.isSoundPlaying("lagu3"))
+        {
+            AudioManager.instance.Play("lagu3");
+        }
     }
 
     public void toBelajar()
     {
         LoadScene(SceneList.SelectBelajar.ToString());
+
+        if (!AudioManager.instance.isSoundPlaying("lagu3"))
+        {
+            AudioManager.instance.Play("lagu3");
+        }
     }
 
     public void toGamemodeSelect()
@@ -101,15 +110,29 @@ public class ButtonNav : MonoBehaviour
 
     public void toChapterSelect()
     {
-        LoadScene(SceneList.ChapterSelect.ToString());
         
-        
+        if (!AudioManager.instance.isSoundPlaying("lagu3"))
+        {
+            AudioManager.instance.StopAllandPlay("lagu3");
+        }
+
+        if (GameManager.instance.lastFinishedLevel == 5 && GameManager.instance.selectedChapter == 3)
+        {
+            GameManager.instance.selectedDialogue = GameManager.instance.dialogues[GameManager.instance.dialogues.Length-1];
+            GameManager.instance.selectedChapter = 0;
+            GameManager.instance.buttonNavigation.toDialogue();
+        }
+        else
+        {
+            LoadScene(SceneList.ChapterSelect.ToString());
+        }
+
     }
 
     public void toLevelSelect(int ch)
     {
         LoadScene(SceneList.LevelSelect.ToString());
-        GameManager.instance.selectedChapter = ch;
+        GameManager.instance.selectedChapter = ch+1;
     }
 
     public void toLevelLand()

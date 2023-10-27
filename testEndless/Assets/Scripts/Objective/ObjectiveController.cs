@@ -97,22 +97,29 @@ public class ObjectiveController : MonoBehaviour
 
     public void ShowWinPanel()
     {
-        for(int i = 0; i < 3; i++)
+        if(levelController.player.playerHP != 0)
         {
-            if (objectives[i].statusChecker())
+            for (int i = 0; i < 3; i++)
             {
-                levelWinStars[i].sprite = FilledStar;
+                if (objectives[i].statusChecker())
+                {
+                    levelWinStars[i].sprite = FilledStar;
+                }
+                else
+                {
+                    levelWinStars[i].sprite = emptyStar;
+                }
             }
-            else
-            {
-                levelWinStars[i].sprite = emptyStar;
-            }
-        }
-        Qtotal.text = "Total Soal : " + levelController.questionCounter;
-        QCorrect.text = "Total Benar : " + levelController.countCorrectAnswer;
-        winPanel.SetActive(true);
+            Qtotal.text = "Total Soal : " + levelController.questionCounter;
+            QCorrect.text = "Total Benar : " + levelController.countCorrectAnswer;
+            winPanel.SetActive(true);
 
-        GameManager.instance.SaveProgress(objectives);
+            GameManager.instance.SaveProgress(objectives);
+        }
+        else
+        {
+            ShowLosePanel();
+        }
     }
 
     public void ShowLosePanel()

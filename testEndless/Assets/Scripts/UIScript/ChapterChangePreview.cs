@@ -12,7 +12,7 @@ public class ChapterChangePreview : MonoBehaviour
 
     private void Start()
     {
-        int unlockedChapter = (GameManager.instance.currentUnlockedLevel / 5);
+        int unlockedChapter = ((GameManager.instance.currentUnlockedLevel-1) / 5);
 
         Debug.Log(unlockedChapter);
 

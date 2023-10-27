@@ -46,7 +46,7 @@ public class AnswerSpawner : MonoBehaviour
 
     private Vector3 LaneCord(int lane)
     {
-        return new Vector2(transform.position.x, Lane.objectPosition[lane]);
+        return new Vector2(transform.position.x + (0.05f*lane), Lane.objectPosition[lane]);//biar gk ada nabrak 2 jawaban bersamaan
     }
 
     //public void SpawnAns()

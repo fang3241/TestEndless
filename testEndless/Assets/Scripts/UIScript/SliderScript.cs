@@ -17,62 +17,34 @@ public class SliderScript : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI sliderText;
     public float pointRate;
-
-    public int fillBarCounter;
+    
     public int barValue;
 
     public bool isTesting = false;
 
     public CounterState state;
-    public CounterState lastState;
-
-
-    public bool fillOrEmpty;//1 = fill 0 = empty(decrease to 0)
 
     
-    //private void Awake()
-    //{
-    //    StartCoroutine(WaitForLC());
-    //}
-
-    //IEnumerator WaitForLC()
-    //{
-    //    if(LevelController == null)
-    //    {
-    //        Debug.Log("WAITING");
-    //        LevelController = GameManager.instance.levelController;
-    //        yield return new WaitUntil(() => LevelController != null);
-            
-    //    }
-    //    else
-    //    {
-    //        StartCoroutine(WaitForLC());
-    //    }
-    //}
-
     private void Start()
     {
-        //levelController = GetComponent<QuestionScript>().levelController;
-        //Debug.Log(levelController == null);
         state = CounterState.Filling;
-        lastState = state;
-        fillOrEmpty = true;
-        fillBarCounter = 0;
-        
-        //Debug.Log("max " + slider.maxValue);
-
-        StartCoroutine(CheckState());
     }
 
-    public void addPoint(int add)//buat button testing
+    public void addPoint(int add)
     {
         Debug.Log("ADD " + add);
         Debug.Log("PR " + this.pointRate);
-        slider.value += (add * pointRate);
+        slider.value += add;
         Debug.Log("Added " + (add * pointRate));
         
     }
     
+    private void Update()
+    {
+        Counting();
+        CheckState();
+    }
+
     public void Counting()
     {
         if (!levelController.isLevelEnd)
@@ -80,159 +52,62 @@ public class SliderScript : MonoBehaviour
             if (state == CounterState.Filling)
             {
                 pointRate = 1;
+                slider.value += (Time.deltaTime);
             }
-            else if (state == CounterState.Emptying)
+
+            if (state == CounterState.Emptying)
             {
                 pointRate = -1;
+                slider.value -= (Time.deltaTime);
             }
-            slider.value += Time.deltaTime * pointRate;
-            //kalo mau pake persen
-            //barValue = (int)((slider.value / slider.maxValue) * 100);
+            
 
-            //kalo mau kyk biasa
             barValue = (int)(slider.value);
             sliderText.text = barValue.ToString();
-            state = CounterState.Waiting;
-
-            StartCoroutine(CheckState());
         }
         
     }
 
-    IEnumerator CheckState()
+    public void CheckState()
     {
         if(levelController == null)
         {
             levelController = GameManager.instance.levelController;
         }
 
-        if(state == CounterState.Waiting)
+        if (state == CounterState.Filling)
         {
-            if (slider.value == slider.maxValue)
+            if (slider.value == slider.maxValue && !levelController.isQuestionSpawned)
             {
-                //summon question
-                state = CounterState.Emptying;
-                Debug.Log("emptying");
+                Debug.Log("Full");
                 levelController.SpawnQuestion();
-                levelController.objectiveController.objectives[0].addProgress();
-                slider.maxValue = levelController.maxReadingTime + 0.1f;
-                slider.value = slider.maxValue;
-                
+                slider.maxValue = levelController.maxReadingTime;
+                slider.value = slider.maxValue - 0.1f;
+                state = CounterState.Emptying;
             }
-            else if (slider.value == slider.minValue)
+        }
+        else if (state == CounterState.Emptying)
+        {
+            //Debug.Log("EMPTY");
+            if (slider.value == slider.minValue && !levelController.isAnswerSpawned)
             {
                 state = CounterState.Waiting;
-                if (levelController.isAnswerSpawned)
-                {
-                    Debug.Log("waiting for answer");
-                    if (!levelController.isAnswered)
-                    {
-                        state = CounterState.Waiting;
-                    }
-                    else
-                    {
-                        levelController.StateReset();
-                        state = CounterState.Filling;
-                        slider.maxValue = levelController.maxSliderCounter;
-                        slider.value = 0;
-                    }
-                }
-                else
-                {
-                    levelController.SpawnAnswer();
-                    yield return new WaitForSeconds(1);
-                }
-                
+                levelController.SpawnAnswer();
+            }
+        }
+        else
+        {
+            if (levelController.isAnswered)
+            {
+                Debug.Log("Reseted");
+                levelController.StateReset();
+                slider.maxValue = levelController.maxSliderCounter;
+                state = CounterState.Filling;
             }
 
-            lastState = state;
-            
         }
-
         
-        yield return null;
-        Counting();
+        
     }
     
-
-    //private void SliderUpdate()
-    //{
-    //    if (!LevelController.isLevelEnd && !isTesting)
-    //    {
-    //        slider.value += Time.deltaTime * pointRate;
-
-    //        if(slider.value == slider.maxValue && fillOrEmpty)
-    //        {
-    //            pointRate *= -1;
-    //        }else if(slider.value == slider.minValue && !fillOrEmpty)
-    //        {
-    //            pointRate *= -1;
-    //        }
-    //        //Debug.Log(slider.value);
-    //        sliderText.text = ((int)slider.value).ToString();
-    //        //IncDecToggle();
-    //    }
-    //}
-
-    //private void SliderUpdate()
-    //{
-    //    if (!LevelController.isLevelEnd && !isTesting)
-    //    {
-    //        slider.value += Time.deltaTime * pointRate;
-    //        //Debug.Log(slider.value);
-    //        sliderText.text = ((int)slider.value).ToString();
-    //        IncDecToggle();
-    //    }
-    //}
-
-    //public void IncDecToggle()
-    //{
-    //    if(slider.value == slider.maxValue)
-    //    {
-    //        //if max : spawn q
-    //        //if min : spawn ans
-    //        //fillBarCounter++;
-
-    //        LevelController.objectiveController.objectives[0].addProgress();
-
-    //        //LevelController.QuestionScript.OpenPanel();
-    //        LevelController.StartQuestion();
-    //        Switch();
-    //    }
-    //    else if(slider.value == slider.minValue && !LevelController.isAnswerSpawned)
-    //    {
-    //        Debug.Log("triggered Answer");
-    //        //LevelController.answerSpawner.SpawnAns();
-
-    //        LevelController.StartAnswer();
-    //    }
-    //}
-
-    //public void DecreaseMode()
-    //{
-    //    slider.maxValue = 10.1f;
-    //    slider.value = 10.1f;
-    //}
-
-    //public void FillMode()
-    //{
-    //    slider.maxValue = LevelController.maxSliderCounter + 0.1f;
-    //    slider.value = 0.1f;
-    //}
-
-    //public void Switch()
-    //{
-    //    if (fillOrEmpty)
-    //    {
-    //        DecreaseMode();
-    //        fillOrEmpty = false;
-    //    }
-    //    else
-    //    {
-    //        FillMode();
-    //        fillOrEmpty = true;
-    //    }
-    //    pointRate *= -1;
-    //}
-
 }

@@ -77,7 +77,7 @@ public class QuestionReader : MonoBehaviour
 
         GameManager.instance.customSoal = questions;
         GameManager.instance.selectedMaxQuestion = totalSoal;
-        GameManager.instance.selectedMaxCounter = 15;//hard code dulu
+        //GameManager.instance.selectedMaxCounter = 15;//hard code dulu
         GameManager.instance.buttonNavigation.TQUI();
 
     }

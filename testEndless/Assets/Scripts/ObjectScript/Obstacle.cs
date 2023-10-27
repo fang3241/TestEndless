@@ -10,7 +10,7 @@ public class Obstacle : Collectable
 
     private void OnDisable()
     {
-        Debug.Log("Destroyed");
+        //Debug.Log("Destroyed");
         //StartCoroutine(Destroy());
     }
     

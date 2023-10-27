@@ -58,8 +58,6 @@ public class CustomQController : MonoBehaviour
             timerText.text = "Sisa Waktu : " + ((int)timerSlider.value);
             if (timerSlider.value == timerSlider.minValue)
             {
-                //salah+
-                //resettimer
                 Debug.Log("Waktu habis");
                 salah++;
                 current++;
@@ -128,9 +126,7 @@ public class CustomQController : MonoBehaviour
         }
         else
         {
-
             LoadNextQuestion();
-            //load next soal
         }
     }
 

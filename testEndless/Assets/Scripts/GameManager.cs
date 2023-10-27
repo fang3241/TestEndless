@@ -69,8 +69,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        currentUnlockedLevel = 15;
-        //currentUnlockedLevel = PlayerPrefs.GetInt("unlockedLevel", 0);
+        currentUnlockedLevel = PlayerPrefs.GetInt("unlockedLevel", 1);
         selectedObjLevelStatus = new bool[3] { false, false, false };
     }
 
@@ -105,7 +104,7 @@ public class GameManager : MonoBehaviour
     public void LoadProgress()
     {
         string load = PlayerPrefs.GetString("ch" + selectedChapter + "lv" + selectedLevel, "-0-0-0");
-        //Debug.Log("ch" + selectedChapter + "lv" + selectedLevel);
+        Debug.Log("LOADED ch" + selectedChapter + "lv" + selectedLevel);
         //Debug.Log("OBJ : " + load);
         int i = 0;
         foreach(string a in load.Split('-'))
@@ -129,13 +128,15 @@ public class GameManager : MonoBehaviour
     {
         string save = ConvertOBJtoString(finishedObj);
         lastFinishedLevel = selectedLevel;
-        lastFinishedLevel++;
+        //lastFinishedLevel++;
         if(currentUnlockedLevel == lastFinishedLevel)
         {
             currentUnlockedLevel++;
             PlayerPrefs.SetInt("unlockedLevel", currentUnlockedLevel);
             PlayerPrefs.SetString("ch" + selectedChapter + "lv" + selectedLevel, save);
         }
+        
+        Debug.Log("ch" + selectedChapter + "lv" + selectedLevel + "Saved");
     }
 
     private string ConvertOBJtoString(Objective[] obj)
@@ -159,6 +160,11 @@ public class GameManager : MonoBehaviour
 
         return t;
         
+    }
+
+    public void ClearData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
 }

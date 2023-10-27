@@ -70,8 +70,8 @@ MonoBehaviour:
     answer: 66
   - questionImage: {fileID: 0}
     hasImage: 0
-    question: "6.\tSolat berjamaah pahalanya lebih besar\u2026dibandingkan dengan
-      solat sendirian"
+    question: "Sholat berjamaah pahalanya lebih besar\u2026dibandingkan dengan solat
+      sendirian"
     options:
     - 26 derajat
     - 27 derajat

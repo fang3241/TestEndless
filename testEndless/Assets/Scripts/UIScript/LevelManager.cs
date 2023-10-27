@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+
         maxLevelCounters = new int[3] { 25, 40, 50 };//per chapter
         maxReadingTime = new int[3] { 30, 24, 18 };//per chapter
         maxLevelQuestions = new int[5] { 3, 3, 3, 5, 5 };//max pertanyaaan per level di masing" chapter
@@ -35,12 +36,12 @@ public class LevelManager : MonoBehaviour
 
     public void LevelSetUp(int l)
     {
-        GameManager.instance.selectedLevel = l;
-        GameManager.instance.selectedMaxCounter = maxLevelCounters[GameManager.instance.selectedChapter];
+        GameManager.instance.selectedLevel = l + 1;
+        GameManager.instance.selectedMaxCounter = maxLevelCounters[GameManager.instance.selectedChapter - 1];
         GameManager.instance.selectedMaxQuestion = maxLevelQuestions[l];
-        GameManager.instance.selectedMaxReadingTime = maxReadingTime[GameManager.instance.selectedChapter];
-        GameManager.instance.selectedBab = babLevels[GameManager.instance.selectedChapter, l];
-        GameManager.instance.selectedSpeedScaling = speedScalings[GameManager.instance.selectedChapter];
+        GameManager.instance.selectedMaxReadingTime = maxReadingTime[GameManager.instance.selectedChapter - 1];
+        GameManager.instance.selectedBab = babLevels[GameManager.instance.selectedChapter - 1, l];
+        GameManager.instance.selectedSpeedScaling = speedScalings[GameManager.instance.selectedChapter - 1];
 
         GameManager.instance.LoadProgress();
 
@@ -52,7 +53,7 @@ public class LevelManager : MonoBehaviour
         bool read = false;
         Debug.Log(GameManager.instance.selectedLevel);
 
-        int sLevel = (GameManager.instance.selectedChapter * 5) + GameManager.instance.selectedLevel;
+        int sLevel = ((GameManager.instance.selectedChapter-1) * 5) + GameManager.instance.selectedLevel;
 
         foreach(CharacterDialogues a in GameManager.instance.dialogues)
         {
@@ -70,15 +71,15 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            if (GameManager.instance.selectedChapter == 0)
+            if (GameManager.instance.selectedChapter == 1)
             {
                 GameManager.instance.buttonNavigation.toLevelLand();
             }
-            else if (GameManager.instance.selectedChapter == 1)
+            else if (GameManager.instance.selectedChapter == 2)
             {
                 GameManager.instance.buttonNavigation.toLevelWater();
             }
-            else if (GameManager.instance.selectedChapter == 2)
+            else if (GameManager.instance.selectedChapter == 3)
             {
                 GameManager.instance.buttonNavigation.toLevelAir();
             }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93834103796dd5c4c8c82d116b308adb, type: 3}
   m_Name: DIalog Sebelum naik kapal
   m_EditorClassIdentifier: 
-  level: 5
+  level: 6
   bgImage: {fileID: 21300000, guid: d23ee905ccbaf18499101b1927fad800, type: 3}
   dialogues:
   - charID: 0

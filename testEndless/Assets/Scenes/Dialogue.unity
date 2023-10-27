@@ -177,6 +177,12 @@ MonoBehaviour:
   - charID: 7
     name: Ujang
     spriteChar: {fileID: 21300000, guid: a62717f6d0b20544698ffe1c564ee429, type: 3}
+  - charID: 8
+    name: Pilot
+    spriteChar: {fileID: 0}
+  - charID: 9
+    name: Nenek
+    spriteChar: {fileID: 0}
   letterSpeed: 0.025
   charImage: {fileID: 876104244}
   bgImg: {fileID: 875966209}
@@ -568,7 +574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -456, y: -35}
+  m_AnchoredPosition: {x: -456, y: 0}
   m_SizeDelta: {x: 231.8337, y: 286.2463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876104244
@@ -1273,8 +1279,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.5}
-  m_SizeDelta: {x: -22, y: -31}
+  m_AnchoredPosition: {x: 0, y: 3.6129}
+  m_SizeDelta: {x: -22, y: -29.2259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1202606095
 GameObject:
@@ -1312,7 +1318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -456, y: -126.18}
+  m_AnchoredPosition: {x: -456, y: -102.86}
   m_SizeDelta: {x: 328.1908, y: 54.4328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202606097
@@ -1389,8 +1395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000038146973, y: -256.7003}
-  m_SizeDelta: {x: 1280, y: 206.6}
+  m_AnchoredPosition: {x: 0.000038146973, y: -245.04053}
+  m_SizeDelta: {x: 1280, y: 229.9195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294879503
 MonoBehaviour:

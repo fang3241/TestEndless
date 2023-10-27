@@ -75,6 +75,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f74bf6698612ca4e89e69fdb53e2af4, type: 2}
   - {fileID: 11400000, guid: ce3259ef27528b84e810e810d3a9a2b2, type: 2}
   - {fileID: 11400000, guid: 4ec2b64c09567cd4ebf653b3a4826330, type: 2}
+  - {fileID: 11400000, guid: 7b066cdc3c2382f428bf8aa6703982b9, type: 2}
   selectedDialogue: {fileID: 0}
 --- !u!114 &4569827644304369478
 MonoBehaviour:

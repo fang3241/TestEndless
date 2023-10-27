@@ -31,6 +31,7 @@ public class Countdown : MonoBehaviour
 
     IEnumerator Counter(int sec)
     {
+        AudioManager.instance.StopAll();
         Time.timeScale = 0;
         isCountRunning = true;
         for(int i = sec; i > 0; i--)
@@ -44,7 +45,16 @@ public class Countdown : MonoBehaviour
         Time.timeScale = 1;
 
         this.gameObject.SetActive(false);
-
+        if(GameManager.instance.buttonNavigation.getCurrentSceneName() == "LevelLand")
+        {
+            AudioManager.instance.Play("lagu1");
+        }else if (GameManager.instance.buttonNavigation.getCurrentSceneName() == "LevelSea")
+        {
+            AudioManager.instance.Play("lagu2");
+        }else if (GameManager.instance.buttonNavigation.getCurrentSceneName() == "LevelAir")
+        {
+            AudioManager.instance.Play("lagu3");
+        }
     }
 
     public bool getStatus()

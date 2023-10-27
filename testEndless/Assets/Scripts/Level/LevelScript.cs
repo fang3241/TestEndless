@@ -25,8 +25,10 @@ public class LevelScript : MonoBehaviour
     void Start()
     {
         int maxLoadedLevel = GameManager.instance.currentUnlockedLevel;
-        int ch = GameManager.instance.selectedChapter + 1;
-        
+        int ch = GameManager.instance.selectedChapter;
+
+        Debug.Log("LS " + maxLoadedLevel + " " + ch);
+
         /*
          *mis : 
          * maxLoadedLevel = 7 => 5 level ch 1 + 2 level ch 2
@@ -48,24 +50,23 @@ public class LevelScript : MonoBehaviour
         bgImage.sprite = selectedImages[ch - 1];
 
         chapterText.text = "Bagian " + ch;
-        for(int i = 0; i < 5; i++)
+        for(int i = 1; i <= 5; i++)
         {
-            int t = i + 1;
-            lvlButton[i].name = "Level" + t;
+            lvlButton[i-1].name = "Level" + i;
             
-            if (maxLoadedLevel <= i)
+            if (i > maxLoadedLevel)
             {
                 Debug.Log(i + " Locked");
-                lvlButton[i].GetComponent<Button>().interactable = false;
+                lvlButton[i-1].GetComponent<Button>().interactable = false;
             }
             else
             {
-                bool[] data = GameManager.instance.LoadSelectedProgress(ch - 1, i);
+                bool[] data = GameManager.instance.LoadSelectedProgress(ch, i);
 
-                Debug.Log("ch" + ch + "lv" + t + " : " + data[0] + data[1] + data[2]);
+                Debug.Log("ch" + ch + "lv" + i + " : " + data[0] + data[1] + data[2]);
                 
                 int num = 0;
-                foreach (Image s in lvlButton[i].transform.GetChild(1).GetComponentsInChildren<Image>())
+                foreach (Image s in lvlButton[i - 1].transform.GetChild(1).GetComponentsInChildren<Image>())
                 {
                     if (data[num])
                     {
@@ -78,21 +79,10 @@ public class LevelScript : MonoBehaviour
                     num++;
                 }
             }
-            lvlButton[i].GetComponentInChildren<TextMeshProUGUI>().text = ch + "-" + t.ToString();
+            lvlButton[i-1].GetComponentInChildren<TextMeshProUGUI>().text = ch + "-" + i.ToString();
             //Debug.Log("Loaded Level : " + (GameManager.instance.selectedChapter * 5 + i));
         }
 
-
-        //backup
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    //Debug.Log(lvlButton[i].name);
-        //    //int t = GameManager.instance.selectedChapter * 5 + i + 1;
-        //    int t = i + 1;
-        //    lvlButton[i].name = "Level" + t;
-        //    lvlButton[i].GetComponentInChildren<TextMeshProUGUI>().text = (ch + 1) + "-" + t.ToString();
-        //    //Debug.Log("Loaded Level : " + (GameManager.instance.selectedChapter * 5 + i));
-        //}
     }
 
     public void setObjectivePreview()
@@ -101,9 +91,9 @@ public class LevelScript : MonoBehaviour
         int minAnswer = (maxQuestion / 2) + 1;
         int maxHit = 2;
 
-        previewLevelText.text = "Level " + (GameManager.instance.selectedChapter + 1)+ "-" + (GameManager.instance.selectedLevel + 1);
+        previewLevelText.text = "Level " + (GameManager.instance.selectedChapter)+ "-" + (GameManager.instance.selectedLevel);
 
-        objectiveText[0].text = $"Isi bar pengetahuan sebanyak {maxQuestion}x";
+        objectiveText[0].text = $"Isi Garis pengetahuan sebanyak {maxQuestion}x";
         objectiveText[1].text = $"Jawab {minAnswer} atau lebih soal dengan benar";
         objectiveText[2].text = $"Tidak menabrak lebih dari {maxHit} rintangan";
         

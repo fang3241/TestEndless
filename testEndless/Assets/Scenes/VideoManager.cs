@@ -23,7 +23,7 @@ public class VideoManager : MonoBehaviour
 
     private int videoIndex;
 
-    private bool press;
+    public bool press;
 
     private void Awake()
     {
@@ -49,42 +49,34 @@ public class VideoManager : MonoBehaviour
     void Start()
     {
         levelTitle.text = GameManager.instance.customTitle;
-        AudioManager.instance.StopAll();
+        AudioManager.instance.Pause(AudioManager.instance.GetCurrentlyPlayingAudio());
         press = false;
 
         Debug.Log(videos[videoIndex].length);
 
         volumeSlider.value = volumeSlider.maxValue;
         CheckVolume();
-        Play();
-        //StartCoroutine(ResetThumbnail());
         
     }
 
     private void Update()
     {
         CheckVolume();
+        CheckVideoSlider();
     }
 
+    public void CheckVideoSlider()
+    {
+        videoSlider.value = Mathf.InverseLerp(0, (float)vidPlayer.length, (float)vidPlayer.time);
+        currentTime.text = ConvertTime(vidPlayer.time);
+        maxTime.text = ConvertTime(vidPlayer.length);
+    }
 
     public void CheckVolume()
     {
         isPlaying = vidPlayer.isPlaying;
         vidPlayer.SetDirectAudioVolume(0, volumeSlider.value);
-
-        if (!press)
-        {
-            videoSlider.value = Mathf.InverseLerp(0, (float)vidPlayer.length, (float)vidPlayer.time);
-            currentTime.text = ConvertTime(vidPlayer.time);
-        }
-        else
-        {
-            
-            //currentTime.text = ConvertTime((double)Mathf.Lerp(0,1,videoSlider.value));
-        }
-        currentTime.text = ConvertTime(vidPlayer.time);
-        maxTime.text = ConvertTime(vidPlayer.length);
-
+        
     }
 
     public string ConvertTime(double time)
@@ -100,42 +92,40 @@ public class VideoManager : MonoBehaviour
             hour > 0 ? ((hour < 10 ? "0" + hour : hour.ToString()) + ":") : "" 
             + (minute < 10 ? "0" + minute : minute.ToString()) + ":"
             + (sec < 10 ? "0" + sec : sec.ToString());
-
-
+        
     }
 
     public void Play()
     {
-        press = !press;
         Image imgBtn = playBtn.transform.GetChild(0).GetComponent<Image>();
+
+        press = !press;
+
         if (press)
         {
-            Debug.Log(imgBtn.rectTransform.localPosition);
-            //imgBtn.rectTransform.localPosition = new Vector2(5, 2);
-            
-            vidPlayer.Pause();
-            imgBtn.sprite = playImg;
-            Debug.Log("VideoPlayed");
+            vidPlayer.Play();
+            imgBtn.sprite = pauseImg;
         }
         else
         {
-            //vidPlayer.time = Mathf.Lerp(0, 1, (float)vidPlayer.time);
-            imgBtn.sprite = pauseImg;
-            //imgBtn.rectTransform.localPosition = new Vector2(0, 0);
-            vidPlayer.Play();
-
-            
-            Debug.Log("VideoPaused");
+            vidPlayer.Pause();
+            imgBtn.sprite = playImg;
         }
-        
+
     }
     
 
     public void Replay()
     {
+        Image imgBtn = playBtn.transform.GetChild(0).GetComponent<Image>();
         vidPlayer.Stop();
-        Play();
-        videoSlider.value = 0;
+
+        if (press)
+        {
+            imgBtn.sprite = playImg;
+        }
+       
+        press = false;
     }
 
 

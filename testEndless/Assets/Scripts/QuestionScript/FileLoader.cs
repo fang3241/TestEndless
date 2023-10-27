@@ -11,6 +11,7 @@ public class FileLoader : MonoBehaviour
     public DragImageReader imageReader;
     public GameObject btnPrefab;
     public GameObject parentItem;
+    public PilganCounterEditor counterEditor;
 
     public string folderPath;
     public string[] folderList;
@@ -55,7 +56,7 @@ public class FileLoader : MonoBehaviour
         }
         else
         {
-            btn.GetComponent<Button>().onClick.AddListener(() => QuestionReader.ParseText(buttonName, name));
+            btn.GetComponent<Button>().onClick.AddListener(() => counterEditor.OpenMenu(buttonName, name));
 
         }
     }

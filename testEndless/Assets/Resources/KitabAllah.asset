@@ -13,4 +13,143 @@ MonoBehaviour:
   m_Name: KitabAllah
   m_EditorClassIdentifier: 
   bab: 0
-  levelQuestions: []
+  levelQuestions:
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: ada berapa kitab allah swt yang wajib kita imani
+    options:
+    - 2
+    - 3
+    - 4
+    - 5
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: percaya kepada kitab Allah Swt, adalah rukun iman ke
+    options:
+    - 3
+    - 4
+    - 5
+    - 6
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: kitab yang diturunkan kepada Nabi Musa as. adalah
+    options:
+    - Kitab Taurat
+    - Kitab Zabur
+    - Kitab Al quran
+    - Kitab Injil
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: kitab yang diturunkan kepada Nabi Isa as. adalah
+    options:
+    - Kitab Taurat
+    - Kitab Zabur
+    - Kitab Al quran
+    - Kitab Injil
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: kitab yang diturunkan kepada Nabi Muhammad saw. adalah
+    options:
+    - Kitab Taurat
+    - Kitab Zabur
+    - Kitab Al quran
+    - Kitab Injil
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: kitab yang diturunkan kepada Nabi Daud as. adalah
+    options:
+    - Kitab Taurat
+    - Kitab Zabur
+    - Kitab Injil
+    - Kitab Al quran
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: kitab taurat memiliki isi pokok berupa ten commandements. dibawah ini
+      yang termasuk dalam ten commandements adalah
+    options:
+    - Tiada tuhan selain Allah Swt.
+    - Sucikan hari minggu
+    - nyanyian untuk memuji Tuhan
+    - Saling menyayangi sesama makhluk hidup
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: dibawah ini yang termasuk nyanyian rohani yang terdapat dalam kitab
+      zabur, KECUALI
+    options:
+    - nyanyian perorangan sebagai ucapan syukur
+    - ratapan dan doa individu
+    - nyanyian untuk diri sendiri
+    - nyanyian untuk memuji Tuhan
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Al quran diturunkan selama
+    options:
+    - 22 tahun 2 bulan 22 hari
+    - 23 tahun 3 bulan 12 hari
+    - 22 tahun 4 bulan 20 hari
+    - 22 tahun 8 bulan 12 hari
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Total juz dalam Al quran ada
+    options:
+    - 29
+    - 30
+    - 31
+    - 32
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Dibawah ini yang BUKAN nama lain Al quran adalah '
+    options:
+    - 'Al-Huda '
+    - 'Asy-syifa '
+    - 'Al-Kitab '
+    - Al-Quddus
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Asy-syifa merupakan salah satu dari nama lain Al quran, yang artinya
+      adalah  '
+    options:
+    - Al quran sebagai penawar(obat penenang hati)
+    - 'Al quran sebagai petunjuk seluruh umat manusia '
+    - 'Al quran sebagai firman Allah Swt. yang dibukukan '
+    - 'Al quran sebagai peringatan adanya ancaman dan balasan '
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'dibawah ini yang merupakan isi pokok Al quran adalah '
+    options:
+    - 'Nyanyian '
+    - Ibadah
+    - 'Dongeng '
+    - 'Semangat untuk bertahan hidup '
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'membaca dan mempelajari isi Al quran merupakan ibadah. pernyataan
+      tersebut adalah '
+    options:
+    - Keistimewaan dari Al quran
+    - 'Manfaat dari Al quran '
+    - 'Efek samping dari Al quran '
+    - 'Intisari dari Al quran '
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Cara menjaga Al quran adalah sebagai berikut, KECUALI '
+    options:
+    - 'mempelajari Al quran dengan sungguh-sungguh. '
+    - 'mengamalkan Al quran di tempat tertutup. '
+    - 'menghafal semua ayat Al quran dengan baik. '
+    - 'mengamalkan isinya '
+    answer: 66

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93834103796dd5c4c8c82d116b308adb, type: 3}
+  m_Name: Dialog Sampai rumah nenek
+  m_EditorClassIdentifier: 
+  level: 0
+  bgImage: {fileID: 21300000, guid: 8e33d65fd26eadb45886a5c18da18e1d, type: 3}
+  dialogues:
+  - charID: 0
+    sentences: Setelah melewati badai, akhirnya pesawat berhasil mendarat dengan
+      selamat
+  - charID: 0
+    sentences: Kemudian, kami pun menaiki kendaraan umum menuju rumah nenek
+  - charID: 0
+    sentences: Bersambung ......

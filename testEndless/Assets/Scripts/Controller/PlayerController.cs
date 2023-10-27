@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public int playerLane;
 
 
-    private int playerHP;
+    public int playerHP;
     private float posX = -7.4f;
     private bool isMoving;
 

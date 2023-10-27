@@ -12,7 +12,7 @@ public class Objective_Bar : Objective
         this.progress = 0;
         this.banyak = b;
         this.progressStatus = "(" + progress + "/" + banyak + ")";
-        this.namaObjective = $"Isi bar pengetahuan sebanyak {banyak}x";//nyoba cara baru
+        this.namaObjective = $"Isi Garis pengetahuan sebanyak {banyak}x";//nyoba cara baru
         this.status = false;
     }
 

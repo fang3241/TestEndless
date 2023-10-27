@@ -413,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: -400, y: 368.5413}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -552.6338, y: 295.974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1009683366131627255
 CanvasRenderer:
@@ -576,10 +576,10 @@ RectTransform:
   m_Father: {fileID: 1009683366131627253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 894.7864, y: 368}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1009683366422228713
 CanvasRenderer:
@@ -636,12 +636,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 180
+  m_fontSize: 120
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 180
+  m_fontSizeMax: 120
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -714,8 +714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 609.7745}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0.0000038147}
+  m_SizeDelta: {x: 0.00024414, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1009683367379470072
 CanvasRenderer:
@@ -1456,12 +1456,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 50
+  m_fontSizeMax: 35
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -4009,12 +4009,9 @@ MonoBehaviour:
   slider: {fileID: 3270992119508038332}
   sliderText: {fileID: 3270992121113076468}
   pointRate: 0
-  fillBarCounter: 0
   barValue: 0
   isTesting: 0
   state: 0
-  lastState: 0
-  fillOrEmpty: 0
 --- !u!1 &3352301493207047587
 GameObject:
   m_ObjectHideFlags: 0

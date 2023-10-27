@@ -68,7 +68,7 @@ public class LevelController : MonoBehaviour
 
     public bool ISLOADED = false;
 
-    private int ctr;
+    public int ctr;
     
     private void Awake()
     {
@@ -86,8 +86,6 @@ public class LevelController : MonoBehaviour
             questionPools[i] = gameManager.kumpulanSoal[i];
         }
         
-
-        //kalo mau, untuk menambah performa, kurangin penggunaan find
         QuestionScript = GameObject.FindObjectOfType<QuestionScript>();
         player = GameObject.FindObjectOfType<PlayerController>();
         slider = GameObject.FindObjectOfType<SliderScript>();
@@ -97,9 +95,7 @@ public class LevelController : MonoBehaviour
         collectableSpawner = spawnerParent.transform.GetChild(1).GetComponent<CollectableSpawner>();
         obstacleSpawner = spawnerParent.transform.GetChild(2).GetComponent<ObstacleSpawner>();
         ObsContainer = spawnerParent.transform.GetChild(3).gameObject;
-
-
-        //QuestionScript.levelController = this;
+        
         slider.levelController = this;
         slider.slider.maxValue = maxSliderCounter;
 
@@ -130,12 +126,11 @@ public class LevelController : MonoBehaviour
         isQuestionSpawned = false;
         isAnswered = false;
 
-        levelName.text = "Level " + (GameManager.instance.selectedChapter+1) + "-" + (GameManager.instance.selectedLevel + 1);
+        levelName.text = "Level " + (GameManager.instance.selectedChapter) + "-" + (GameManager.instance.selectedLevel);
     }
 
     private void Update()
     {
-        //sementara
         if (Input.GetKeyDown(KeyCode.Escape) && !isLevelEnd && !objectiveController.countdown.getStatus())
         {
             ShowPause();
@@ -171,14 +166,11 @@ public class LevelController : MonoBehaviour
 
         questionCounter++;
 
+        objectiveController.objectives[0].addProgress();
         isQuestionSpawned = true;
         isAnswerSpawned = false;
         isAnswered = false;
-
-        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
-        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
-        Debug.Log("isanswered : " + isAnswered);
-
+        
         DisableOrEnableSpawned(false);
         QuestionScript.SetQuestion();
     }
@@ -189,11 +181,7 @@ public class LevelController : MonoBehaviour
         isQuestionSpawned = true;
         isAnswerSpawned = true;
         isAnswered = false;
-
-        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
-        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
-        Debug.Log("isanswered : " + isAnswered);
-
+        
         answerSpawner.SpawnAnswer();
     }
 
@@ -203,11 +191,7 @@ public class LevelController : MonoBehaviour
         isQuestionSpawned = true;
         isAnswerSpawned = true;
         isAnswered = true;
-
-        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
-        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
-        Debug.Log("isanswered : " + isAnswered);
-
+        
         AnswerChecker();
         
     }
@@ -219,10 +203,6 @@ public class LevelController : MonoBehaviour
         isAnswerSpawned = false;
         isAnswered = false;
         
-        Debug.Log("isquestionSpawned : " + isQuestionSpawned);
-        Debug.Log("isanswerSpawned : " + isAnswerSpawned);
-        Debug.Log("isanswered : " + isAnswered);
-
         LevelEndChecker();
         QuestionScript.ClosePanel();
         DisableOrEnableSpawned(true);
@@ -232,26 +212,26 @@ public class LevelController : MonoBehaviour
     {
         if (!isLevelEnd)
         {
-            obstacleSpawner.canSpawn = stat;
-            collectableSpawner.canSpawn = stat;
-            
             ctr = 0;
 
-            if (isQuestionSpawned)
+            if (!stat)
             {
+                obstacleSpawner.canSpawn = false;
+                collectableSpawner.canSpawn = false;
                 foreach (Transform a in ObsContainer.transform)
                 {
                     Destroy(a.gameObject);
                 }
             }
-        }
-        else
-        {
-            obstacleSpawner.canSpawn = false;
-            collectableSpawner.canSpawn = false;
+            else
+            {
+                obstacleSpawner.canSpawn = true;
+                collectableSpawner.canSpawn = true;
+            }
         }
         
-        
+
+        Debug.Log("RESETED");
     }
 
     public void AnswerChecker()
@@ -270,7 +250,7 @@ public class LevelController : MonoBehaviour
                 Debug.Log("Jawaban Benar");
                 countCorrectAnswer++;
             }
-            
+            //StateReset();
         }
 
     }
@@ -290,6 +270,7 @@ public class LevelController : MonoBehaviour
     public void OpenEndPanel()
     {
         objectiveController.ShowWinPanel();
+        //GameManager.instance.SaveProgress(objectiveController.objectives);
     }
 
     public void ResetAll()

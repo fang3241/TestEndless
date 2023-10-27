@@ -63,15 +63,22 @@ public class DialogueManager : MonoBehaviour
 
         Dialogue charSentence = sentences.Dequeue();
 
-        if(characters[charSentence.charID].spriteChar == null)//narasi
+        if(characters[charSentence.charID].name == "")//narasi
         {
             charImage.gameObject.SetActive(false);
             dialogueName.transform.parent.gameObject.SetActive(false);
-        }
-        else
+        }else 
         {
-            charImage.gameObject.SetActive(true);
-            dialogueName.transform.parent.gameObject.SetActive(true);
+            if (characters[charSentence.charID].spriteChar == null)
+            {
+                charImage.gameObject.SetActive(false);
+                dialogueName.transform.parent.gameObject.SetActive(true);
+            }
+            else
+            {
+                charImage.gameObject.SetActive(true);
+                dialogueName.transform.parent.gameObject.SetActive(true);
+            }
 
             dialogueName.text = characters[charSentence.charID].name;
             charImage.sprite = characters[charSentence.charID].spriteChar;
@@ -106,16 +113,20 @@ public class DialogueManager : MonoBehaviour
 
         int type = GameManager.instance.selectedChapter;
 
-        if(type == 0)
+        if(type == 1)
         {
             GameManager.instance.buttonNavigation.toLevelLand();
-        }else if (type == 1)
+        }else if (type == 2)
         {
             GameManager.instance.buttonNavigation.toLevelWater();
         }
-        else
+        else if(type == 3)
         {
             GameManager.instance.buttonNavigation.toLevelAir();
+        }
+        else
+        {
+            GameManager.instance.buttonNavigation.toMenu();
         }
 
     }
