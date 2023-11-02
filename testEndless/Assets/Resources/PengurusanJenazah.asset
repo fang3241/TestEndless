@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b5c56b09597f747a827eb7b330f245, type: 3}
+  m_Name: PengurusanJenazah
+  m_EditorClassIdentifier: 
+  bab: 2
+  levelQuestions:
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Sebelum menguburkan jenazah, langkah yang harus dilakukan adalah
+    options:
+    - Dimandikan
+    - Disholati
+    - Dikafani
+    - Diautopsi
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Urutan pengurusan jenazah yang benar adalah
+    options:
+    - Dimandikan > Dikuburkan > Disholati > Dikafani
+    - Dimandikan > Disholati > Dikuburkan > Dikafani
+    - Dimandikan > Disholati > Dikafani > Dikuburkan
+    - Dimandikan > Dikuburkan > Dikafani > Disholati
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Apabila jenazah itu Seorang suami, yang memandikannya hendaknya '
+    options:
+    - Tetangga
+    - Saudara perempuan
+    - Anak perempuan
+    - Istri
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: 'Apabila jenazah itu Seorang istri, yang memandikannya hendaknya '
+    options:
+    - Suami
+    - Saudara Laki laki
+    - Tetangga
+    - Paman
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Andi akan mengafani saudaranya laki lakinya yang meninggal. Tono membawa
+      banyak kain untuk mengafaninya. Budi menyarankan untuk mengafaninya dengan
+      5 lapis kain, tapi tono menyarankan untuk mengafaninya dengan 2 lapis kain.
+      Berapa lapis kain yang digunakan untuk mengafani saudara laki laki Andi ?
+    options:
+    - 2
+    - 3
+    - 4
+    - 5
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Gerakan pada sholat jenazah, yang tidak dilakukan pada sholat biasa,
+      Kecuali
+    options:
+    - Sujud
+    - Takbiratul Ihram
+    - Rukuk
+    - Duduk diantara 2 sujud
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berapa lapis kain yang digunakan untuk mengafani mayat perempuan ?
+    options:
+    - 5
+    - 6
+    - 2
+    - 3
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apabila mayat laki-laki, imam berdiri di dekat ..... Jenazah?
+    options:
+    - Kepala
+    - Dada
+    - Perut
+    - Kaki
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Apabila mayat perempuan, imam berdiri di dekat ..... Jenazah?
+    options:
+    - Kepala
+    - Dada
+    - Perut
+    - Kaki
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Andi menjadi imam saat sholat jenazah. Setelah membaca niat, dia melakukan
+      takbiratul ihram. setelah melakukan takbir yang pertama, andi membaca ?
+    options:
+    - An Nas
+    - Takbir
+    - Istighfar
+    - Al Fatihah
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Bacaan yang dibaca saat takbir kedua sholat jenazah adalah ?
+    options:
+    - Al Fatihah
+    - Doa untuk jenazah
+    - Sholawat
+    - Alhamdulillah
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berapa kali takbir dilakukan saat sholat jenazah ?
+    options:
+    - 3
+    - 4
+    - 5
+    - 6
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Kegiatan yang dilakukan dengan maksud menghibur atau memberi semangat
+      dan untuk mengunjungi orang yang sedang tertimpa musibah kematian, disebut
+      ?
+    options:
+    - Motivasi
+    - Ziarah kubur
+    - Muazziyat
+    - Takziah
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Yang dilakukan saat ziarah kubur, KECUALI
+    options:
+    - Mendoakan orang yang sudah meninggal
+    - Merawat makam
+    - Meminta keberuntungan
+    - Mengingat kematian
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berikut ini adalah adab dalam ziarah kubur, yaitu
+    options:
+    - Mengingat kematian
+    - Mengingat kesalahan orang yang dikubur
+    - Membicarakan urusan duniawi
+    - Berdoa untuk ampunan dan kesejahteraan si mayat di alam barzah dan akhirat
+      kelak
+    answer: 68

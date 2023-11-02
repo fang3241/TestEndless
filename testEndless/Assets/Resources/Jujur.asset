@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b5c56b09597f747a827eb7b330f245, type: 3}
+  m_Name: Jujur
+  m_EditorClassIdentifier: 
+  bab: 1
+  levelQuestions:
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Sifat seseorang yang menyatakan sesuatu dengan sesungguhnya dan apa
+      adanya, tidak ditambah atau dikurangi disebut
+    options:
+    - Adil
+    - Jujur
+    - Disiplin
+    - Percaya diri
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Kejujuran merupakan bekal bagi orang beriman ketika beraktivitas, pernyataan
+      di bawah ini bukan merupakan akibat ketidakjujuran adalah..
+    options:
+    - Sulit dipercaya
+    - Tidak disukai orang
+    - Dijauhi dalam bergaul
+    - Selalu sakit-sakitan
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berikut contoh perilaku jujur dalam perbuatan adalah..
+    options:
+    - Dio mengatakan bahwa yang bersalah sebenarnya adalah Andi
+    - Saat mengerjakan ulangan Beni tidak menyontek
+    - Udin rajin puasa Senin kamis karena Allah SWT
+    - Pak Zanuri menjalankan ibadah haji
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Nabi Muhammad SAW menjelaskan bahwa jujur itu membawa kebaikan dan
+      kebaikan itu menuntun ke surga. Ungkapan tersebut mengandung arti
+    options:
+    - Jujur menyebabkan orang bahagia
+    - Jujur membuat pelakunya selalu gelisah
+    - Jujur membawa keberkahan dalam hidup
+    - Jujur menyebabkan kenyamanan dalam berperilaku
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berikut yang tidak termasuk pengertian jujur adalah
+    options:
+    - Kesesuaian antara ucapan dan perbuatan
+    - Sesuatu yang tidak mengandung kedustaan
+    - Kesesuaian kehendak dan hati
+    - Ketegasan dan kemantapan
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Memberikan informasi sesuai dengan kenyataannya disebut
+    options:
+    - Tawaddhu
+    - Zuhud
+    - Istiqamah
+    - Jujur
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berikut yang tidak termasuk pengertian jujur adalah
+    options:
+    - Kesesuaian antara ucapan dan perbuatan
+    - Sesuatu yang tidak mengandung kedustaan
+    - Kesesuaian informasi dan kenyataan
+    - 'Ketegasan dan kemantapan '
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Rahman rajin beribadah ke masjid. Ibadah rahman semata-mata karena
+      Allah SWT. Sikap Rahman adalah cerminan dari.
+    options:
+    - Jujur dalam niat
+    - Jujur dalam perkataan
+    - Jujur dalam perbuatan
+    - Jujur dalam sikap
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Berikut contoh perilaku jujur dalam perbuatan adalah
+    options:
+    - Dio mengatakan bahwa yang bersalah sebenarnya adalah Andi
+    - Saat mengerjakan ulangan Beni tidak menyontek
+    - Udin rajin puasa Senin kamis karena Allah SWT
+    - Pak Zanuri menjalankan ibadah haji
+    answer: 66
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Salah satu ciri orang yang berperilaku jujur yaitu
+    options:
+    - Suka dipuji orang lain
+    - Berbuat semaunya sendiri
+    - Mematuhi perintah orang tua
+    - 'Berani mengakui kesalahan '
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Contoh perilaku jujur di lingkungan sekolah adalah
+    options:
+    - 'Tidak menyontek saat ulangan '
+    - Meminta izin kepada ibu guru saat istirahat
+    - Tidak menyembunyikan identitas diri
+    - Memanfaatkan uang saku sebaik-baiknya
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Seseorang penjual tidak mengurangi takaran dan timbangan dalam jual
+      beli, merupakan salah satu bentuk kejujuran dalam hal.
+    options:
+    - Muamalah
+    - Perkataan
+    - Menepati janji
+    - Berpenampilan
+    answer: 65
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Ahmad adalah pelajar yang sedikit bicara, ia berbicara ketika perlu
+      dan dianggap penting karena khawatir berdosa jika banyak bicara tidak penting
+      dan tak terkendali. Sikap Ahmad ini cerminan dari.
+    options:
+    - Jujur dalam niat
+    - Jujur dalam janji
+    - 'Jujur dalam perkataan '
+    - Jujur dalam kenyataan
+    answer: 67
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Jessy marah terhadap orang tuanya karena tidak diberi uang yang cukup
+      untuk membeli make up, padahal ibunya tidak memiliki uang yang cukup untuk
+      membelinya. Perilaku si gadis tersebut mencerminkan sikap.
+    options:
+    - Tidak jujur dalam janji
+    - Tidak jujur dalam niat
+    - Tidak jujur dalam perkataan
+    - Tidak jujur dalam kenyataan
+    answer: 68
+  - questionImage: {fileID: 0}
+    hasImage: 0
+    question: Allah memerintahkan kepada setiap orang yang akan menjadi saksi dalam
+      suatu perkara agar menjadi saksi yang
+    options:
+    - 'Adil dan jujur '
+    - Adil dan pandai bicara
+    - Jujur dan pandai bicara
+    - Meringankan terdakwa
+    answer: 65

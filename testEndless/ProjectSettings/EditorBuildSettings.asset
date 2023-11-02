@@ -6,6 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: c8b0fadc34e28bb4698ec700e196de7f
+  - enabled: 1
+    path: Assets/Scenes/LevelLand.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GamemodeSelect.unity
+    guid: 574fe9f00bae63b43a258a107f8f55b7
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 73ef73499097959459f8b7c43be8fc4f
+  - enabled: 1
+    path: Assets/Scenes/ChapterSelect.unity
+    guid: f44ff53f7861e0045be83c163c8b90fa
+  - enabled: 1
+    path: Assets/Scenes/LevelSea.unity
+    guid: 561c151b8e4c5f144b5006a6a8308c0b
+  - enabled: 1
+    path: Assets/Scenes/LevelAir.unity
+    guid: d40cd19dd497d1040bfd1e3a934e3084
+  - enabled: 1
+    path: Assets/Scenes/SelectLevelCustom.unity
+    guid: b89f06040be03b74ea27872d25faab3c
+  - enabled: 1
+    path: Assets/Scenes/CustomQuestion.unity
+    guid: 823b7f8ad9b0f794e8345f07ae9be9f8
+  - enabled: 1
+    path: Assets/Scenes/CustomDragnDrop.unity
+    guid: 023147a70acfb5f46ae9db77c6ce609e
+  - enabled: 1
+    path: Assets/Scenes/SelectBelajar.unity
+    guid: acd035c39e242c6408176b96eead3505
+  - enabled: 1
+    path: Assets/Scenes/ShowBelajar.unity
+    guid: ea07d5ee27a17a844ba85e6d59cfe6f0
+  - enabled: 1
+    path: Assets/Scenes/Dialogue.unity
+    guid: 23af60d011feb6d46a019ed3b02003db
   m_configObjects: {}

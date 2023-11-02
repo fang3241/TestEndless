@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4569827644304369497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4569827644304369476}
+  - component: {fileID: 4569827644304369479}
+  - component: {fileID: 4569827644304369478}
+  - component: {fileID: -611331234938789686}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4569827644304369476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569827644304369497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1373699, y: 2.6901183, z: 77.71365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4569827644304369479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569827644304369497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0182945aabf2764dacc4298cee682d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  qReader: {fileID: 0}
+  levelController: {fileID: 0}
+  buttonNavigation: {fileID: 0}
+  currentUnlockedLevel: 0
+  lastFinishedLevel: 0
+  selectedChapter: 0
+  selectedLevel: 0
+  selectedSpeedScaling: 0
+  selectedMaxCounter: 0
+  selectedMaxQuestion: 0
+  selectedMaxReadingTime: 0
+  selectedBab: 0
+  selectedObjLevelStatus: 
+  kumpulanSoal:
+  - {fileID: 11400000, guid: 8558e4b9177e67b42bc5940c1e2c12d3, type: 2}
+  - {fileID: 11400000, guid: 7c7b04ed48c962f40866cc9ac21465c6, type: 2}
+  - {fileID: 11400000, guid: 0bb4bd2db4c54cb4ea46b9210ba563fa, type: 2}
+  - {fileID: 11400000, guid: cfd3a60c83af86b43b0a5e5fdaec560b, type: 2}
+  - {fileID: 11400000, guid: 68cce86e81af4de4cacf202ac1ad5b8d, type: 2}
+  customSoal: []
+  DIcontroller: {fileID: 0}
+  imageLists: []
+  answerLists: []
+  customType: 0
+  customTitle: 
+  selectedVideoBelajar: 0
+  dialogues:
+  - {fileID: 11400000, guid: 8f74bf6698612ca4e89e69fdb53e2af4, type: 2}
+  - {fileID: 11400000, guid: ce3259ef27528b84e810e810d3a9a2b2, type: 2}
+  - {fileID: 11400000, guid: 4ec2b64c09567cd4ebf653b3a4826330, type: 2}
+  - {fileID: 11400000, guid: 7b066cdc3c2382f428bf8aa6703982b9, type: 2}
+  selectedDialogue: {fileID: 0}
+--- !u!114 &4569827644304369478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569827644304369497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bc141f56fdebe42ac78d35dec84736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSoal: []
+  questions: []
+  qSprites: []
+  totalSoal: 0
+--- !u!114 &-611331234938789686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569827644304369497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cfc4e6790d33e46b79bb637317e8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneLoader: {fileID: 0}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93834103796dd5c4c8c82d116b308adb, type: 3}
+  m_Name: Dialog sebelum naik pesawat
+  m_EditorClassIdentifier: 
+  level: 11
+  bgImage: {fileID: 21300000, guid: bbe800fdbfcecc246855a346e1b863ad, type: 3}
+  dialogues:
+  - charID: 0
+    sentences: 'Setelah menyebrangi pulau, kami sekeluarga pun menuju bandara. '
+  - charID: 0
+    sentences: Kami melakukan check in, lalu masuk ke pesawat. Sebelum pesawat lepas
+      landas, pramugari memperagakan cara memasang sabuk pengaman, dan alat alat
+      keselamatan lain.
+  - charID: 0
+    sentences: ' Tidak lama kemudian, pesawat pun lepas landas. '
+  - charID: 8
+    sentences: Beberapa waktu setelah pesawat terbang....
+  - charID: 0
+    sentences: (Pesawat mulai bergoncang)
+  - charID: 8
+    sentences: Para penumpang yang kami hormati, mohon untuk memasang sabuk pengaman,
+      dikarenakan ada badai didepan. Terima kasih
