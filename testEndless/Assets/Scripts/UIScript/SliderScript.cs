@@ -70,10 +70,7 @@ public class SliderScript : MonoBehaviour
 
     public void CheckState()
     {
-        if(levelController == null)
-        {
-            levelController = GameManager.instance.levelController;
-        }
+        levelController = GameManager.instance.levelController;
 
         if (state == CounterState.Filling)
         {

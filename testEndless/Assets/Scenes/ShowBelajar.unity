@@ -477,7 +477,7 @@ VideoPlayer:
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
@@ -1013,13 +1013,13 @@ MonoBehaviour:
   currentTime: {fileID: 2041099090}
   maxTime: {fileID: 690621679}
   levelTitle: {fileID: 1154606544}
-  videos:
-  - {fileID: 32900000, guid: 6835f23897cd74846982aa2ac2f388d0, type: 3}
-  - {fileID: 32900000, guid: 3171ba7988aaf9c47b35bf50a659b5df, type: 3}
-  - {fileID: 32900000, guid: e25d7b2ff693be34dabae45e6ed87cd9, type: 3}
-  - {fileID: 32900000, guid: 09c44a33a3fa97a46aaf10d9beafbcfb, type: 3}
-  - {fileID: 32900000, guid: fb4f60199e6fbd84285daf3dc31ed669, type: 3}
   vidPlayer: {fileID: 115040056}
+  videoName:
+  - bab1Comp.mp4
+  - bab2Comp.mp4
+  - bab3Comp.mp4
+  - bab4Comp.mp4
+  - bab5Comp.mp4
   renderTextureMain: {fileID: 8400000, guid: 98d50439137d28c44b0d0d7b75b52308, type: 2}
   screen: {fileID: 1408552159}
   volume: 0
@@ -2448,7 +2448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0}
   m_SizeDelta: {x: 0.00024414, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1682451071

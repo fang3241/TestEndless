@@ -41,16 +41,17 @@ public class PlayerController : MonoBehaviour
         {
             if (!isMoving)
             {
-                if (Input.GetKeyDown(KeyCode.W) && playerLane > 0)
+                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && playerLane > 0)
                 {
+                    Debug.Log("UP");
                     StartCoroutine(Move(playerLane - 1, speed * LevelController.speedScaling, 5));
-
                 }
-                else if (Input.GetKeyDown(KeyCode.S) && playerLane < 3)
+                else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && playerLane < 3)
                 {
+                    Debug.Log("Down");
                     StartCoroutine(Move(playerLane + 1, speed * LevelController.speedScaling, -5));
-
                 }
+
             }
         }
         else

@@ -7,10 +7,11 @@ public class Countdown : MonoBehaviour
 {
     public TextMeshProUGUI countText;
     private bool isCountRunning;
+    //public GameObject ui;
 
     public void StartCountdown()
     {
-        this.gameObject.SetActive(true);
+        this.transform.GetChild(0).gameObject.SetActive(true);
 
     }
 
@@ -44,7 +45,7 @@ public class Countdown : MonoBehaviour
         isCountRunning = false;
         Time.timeScale = 1;
 
-        this.gameObject.SetActive(false);
+        this.transform.GetChild(0).gameObject.SetActive(false);
         if(GameManager.instance.buttonNavigation.getCurrentSceneName() == "LevelLand")
         {
             AudioManager.instance.Play("lagu1");

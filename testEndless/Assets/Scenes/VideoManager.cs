@@ -8,8 +8,16 @@ using TMPro;
 public class VideoManager : MonoBehaviour
 {
     public TextMeshProUGUI currentTime, maxTime, levelTitle;
-    public VideoClip[] videos;
     public VideoPlayer vidPlayer;
+
+    public string[] videoName = {
+        "bab1Comp.mp4",
+        "bab2Comp.mp4",
+        "bab3Comp.mp4",
+        "bab4Comp.mp4",
+        "bab5Comp.mp4",
+    };
+
     public RenderTexture renderTextureMain;
     public RawImage screen;
 
@@ -36,13 +44,16 @@ public class VideoManager : MonoBehaviour
         }
         else
         {
-            vidPlayer.targetTexture = new RenderTexture((int)videos[videoIndex].width, (int)videos[videoIndex].height, 24);
+            vidPlayer.targetTexture = new RenderTexture(1920, 1080, 24);
         }
 
         screen.texture = vidPlayer.targetTexture;
-        vidPlayer.clip = videos[videoIndex];
-        
+        string url = System.IO.Path.Combine(Application.streamingAssetsPath + "/Video/" + videoName[videoIndex]);
+        vidPlayer.source = VideoSource.Url;
+        vidPlayer.url = url;
 
+
+        Debug.Log(url);
     }
 
     // Start is called before the first frame update
@@ -51,8 +62,7 @@ public class VideoManager : MonoBehaviour
         levelTitle.text = GameManager.instance.customTitle;
         AudioManager.instance.Pause(AudioManager.instance.GetCurrentlyPlayingAudio());
         press = false;
-
-        Debug.Log(videos[videoIndex].length);
+        
 
         volumeSlider.value = volumeSlider.maxValue;
         CheckVolume();
