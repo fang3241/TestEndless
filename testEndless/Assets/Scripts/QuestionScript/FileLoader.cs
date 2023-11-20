@@ -18,10 +18,10 @@ public class FileLoader : MonoBehaviour
 
     public int customType;
     
-
     // Start is called before the first frame update
     void Start()
     {
+        
         customType = GameManager.instance.customType;
         //baca folder yg mau dituju
         folderPath = GetLevelPath();
@@ -36,7 +36,7 @@ public class FileLoader : MonoBehaviour
         }
 
     }
-
+    
     public string GetLevelPath()
     {
         string path = Application.streamingAssetsPath;

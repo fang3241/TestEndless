@@ -1,24 +1,24 @@
 -1. ini soal test 1 ?
-=A. ini A1\
+|A. ini A1\
 B. ini B1\
 C. ini C1\
 D. ini D1\
-=A
+|A
 -2. ini soal test 2 ?
-=A. ini A2\
+|A. ini A2\
 B. ini B2\
 C. ini C2\
 D. ini D2\
-=A
+|A
 -3. ini soal test 3 ?
-=A. ini A3\
+|A. ini A3\
 B. ini B3\
 C. ini C3\
 D. ini D3\
-=A
+|A
 -4. ini soal test 4 ?
-=A. ini A4\
+|A. ini A4\
 B. ini B4\
 C. ini C4\
 D. ini D4\
-=A
+|A

@@ -12,7 +12,7 @@ public class Countdown : MonoBehaviour
     public void StartCountdown()
     {
         this.transform.GetChild(0).gameObject.SetActive(true);
-
+        OnEnable();
     }
 
     private void OnEnable()

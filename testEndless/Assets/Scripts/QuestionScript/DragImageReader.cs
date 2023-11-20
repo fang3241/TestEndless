@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+using System.Linq;
 
 public class DragImageReader : MonoBehaviour
 {
+    public static event Action<string> DragErrorListener;
     public List<Sprite> imageLists;
 
     public int totalSoal;
     public List<string> answerLists;
 
+    List<string> imageName;
 
     public void ParseText(string folderPath, string mainFolderTitle)
     {
@@ -37,19 +41,16 @@ public class DragImageReader : MonoBehaviour
             if (a == "")
                 answerLists.Remove(a);
 
-        
-        //foreach(string a in answerLists)
-        //{
-        //    Debug.Log(a);
-        //}
-
         //ambil banyak soal
         totalSoal = answerLists.ToArray().Length;
 
         imageLists = new List<Sprite>();
+        imageName = new List<string>();
         
         string filename = folderPath.Remove(0, streamingAssetsPath.Length);
-        foreach (string a in Directory.GetFiles(folderPath))
+
+        string[] imagePath = Directory.GetFiles(folderPath);
+        foreach (string a in imagePath)
         {
             string name = "";
             if (!a.Contains(".meta") && !a.Contains(".txt"))
@@ -62,11 +63,22 @@ public class DragImageReader : MonoBehaviour
                 {
                     name = a.Remove(0, streamingAssetsPath.Length + filename.Length + 1).Replace(".png", "");
                 }
-                
-                ImageLoader(a, name);
+                imageName.Add(name);
             }
         }
 
+        if (!(answerLists.Count == imageLists.Count && answerLists.All(imageName.Contains)))
+        {
+            DragErrorListener += GameObject.FindObjectOfType<ErrorCheckingCustom>().OpenError;
+            DragErrorListener?.Invoke("Dr");
+            return;
+        }
+        
+        for (int i = 0; i < imageName.Count; i++)
+        {
+            ImageLoader(imagePath[i], imageName[i]);
+        }
+        
         GameManager.instance.imageLists = imageLists.ToArray();
         GameManager.instance.answerLists = answerLists.ToArray();
         GameManager.instance.selectedMaxQuestion = totalSoal;
